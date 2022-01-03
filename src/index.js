@@ -1,21 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import Mainview from './components/main-view/main-view';
 
 import './index.scss';
 
-
-class movieapp extends React.Component {
+class Movieapp extends React.Component {
   render() {
-    return (
-      <div className="movie-app">
-        <div>Good morning</div>
-      </div>
-    );
+    return <Mainview />;
   }
 }
 
-
 const container = document.getElementsByClassName('app-container')[0];
 
-ReactDOM.render(React.createElement(movieapp), container);
+ReactDOM.render(React.createElement(Movieapp), container);
