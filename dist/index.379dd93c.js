@@ -22894,6 +22894,7 @@ parcelHelpers.export(exports, "MainView", ()=>MainView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _movieCard = require("../movie-card/movie-card");
 class MainView extends _reactDefault.default.Component {
     constructor(){
         super();
@@ -22926,7 +22927,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 33,
+                lineNumber: 34,
                 columnNumber: 14
             },
             __self: this,
@@ -22936,27 +22937,61 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 37,
+                lineNumber: 38,
                 columnNumber: 7
             },
             __self: this,
-            children: movies.map((movie)=>{
-                return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                    movie: movie,
                     __source: {
                         fileName: "src/components/main-view/main-view.js",
-                        lineNumber: 39,
-                        columnNumber: 18
+                        lineNumber: 40,
+                        columnNumber: 11
                     },
-                    __self: this,
-                    children: movie.Title
-                }, movie._id));
-            })
+                    __self: this
+                }, movie._id)
+            )
         }));
     }
 }
 exports.default = MainView;
 
   $parcel$ReactRefreshHelpers$b71c.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","../movie-card/movie-card":"dBjSj"}],"dBjSj":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0690 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0690.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class MovieCard extends _reactDefault.default.Component {
+    render() {
+        const { movie  } = this.props;
+        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            className: "movie-card",
+            __source: {
+                fileName: "src/components/movie-card/movie-card.js",
+                lineNumber: 6,
+                columnNumber: 12
+            },
+            __self: this,
+            children: movie.Title
+        }));
+    }
+}
+
+  $parcel$ReactRefreshHelpers$0690.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
