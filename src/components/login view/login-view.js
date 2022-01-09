@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
 export function LoginView(props) {
-  const [username, setusername] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password);
-    // props.onLoggedIn(username);
+    props.onLoggedIn(username);
   };
 
   return (
@@ -16,7 +16,7 @@ export function LoginView(props) {
         Username:
         <input
           type="text"
-          value={usernamme}
+          value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
       </label>
