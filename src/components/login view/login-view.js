@@ -31,6 +31,14 @@ export function LoginView(props) {
       <button type="submit" onClick={handleSubmit}>
         Submit
       </button>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          props.onRegisterClick(true);
+        }}
+      >
+        Register
+      </button>
     </form>
   );
 }

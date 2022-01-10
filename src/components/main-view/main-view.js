@@ -48,7 +48,14 @@ export class MainView extends React.Component {
     if (showRegisterView) return <RegisterView />;
 
     if (!user)
-      return <LoginView onLoggedIn={(user) => this.onLoggidIn(user)} />;
+      return (
+        <LoginView
+          onLoggedIn={(user) => this.onLoggidIn(user)}
+          onRegisterClick={(registervalue) => {
+            this.setRegisterView(registervalue);
+          }}
+        />
+      );
 
     if (movies.length === 0) return <div className="main-view" />;
 

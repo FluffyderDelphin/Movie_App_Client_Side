@@ -22947,10 +22947,13 @@ class MainView extends _reactDefault.default.Component {
         if (!user1) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
             onLoggedIn: (user)=>this.onLoggidIn(user)
             ,
+            onRegisterClick: (registervalue)=>{
+                this.setRegisterView(registervalue);
+            },
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 51,
-                columnNumber: 14
+                lineNumber: 52,
+                columnNumber: 9
             },
             __self: this
         }));
@@ -22958,7 +22961,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 53,
+                lineNumber: 60,
                 columnNumber: 37
             },
             __self: this
@@ -22967,7 +22970,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 56,
+                lineNumber: 63,
                 columnNumber: 7
             },
             __self: this,
@@ -22978,7 +22981,7 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 58,
+                    lineNumber: 65,
                     columnNumber: 11
                 },
                 __self: this
@@ -22989,7 +22992,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.js",
-                        lineNumber: 66,
+                        lineNumber: 73,
                         columnNumber: 13
                     },
                     __self: this
@@ -25521,6 +25524,19 @@ function LoginView(props) {
                 },
                 __self: this,
                 children: "Submit"
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                onClick: (e)=>{
+                    e.preventDefault();
+                    props.onRegisterClick(true);
+                },
+                __source: {
+                    fileName: "src/components/login view/login-view.js",
+                    lineNumber: 34,
+                    columnNumber: 7
+                },
+                __self: this,
+                children: "Register"
             })
         ]
     }));
