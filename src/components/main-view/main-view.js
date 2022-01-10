@@ -4,6 +4,7 @@ import axios from 'axios';
 import { LoginView } from '../login view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { RegisterView } from '../registration-view/registration-view';
 
 export class MainView extends React.Component {
   constructor() {
@@ -38,34 +39,34 @@ export class MainView extends React.Component {
   }
   render() {
     const { movies, selectedMovie, user } = this.state;
-    console.log(movies);
-    if (!user)
-      return <LoginView onLoggedIn={(user) => this.onLoggidIn(user)} />;
+    return <RegisterView />;
+    // if (!user)
+    //   return <LoginView onLoggedIn={(user) => this.onLoggidIn(user)} />;
 
-    if (movies.length === 0) return <div className="main-view" />;
+    // if (movies.length === 0) return <div className="main-view" />;
 
-    return (
-      <div className="main-view">
-        {selectedMovie ? (
-          <MovieView
-            movie={selectedMovie}
-            onBackClick={(newSelectedMovie) => {
-              this.setSelectedMovie(newSelectedMovie);
-            }}
-          />
-        ) : (
-          movies.map((movie) => (
-            <MovieCard
-              key={movie._id}
-              movie={movie}
-              onMovieClick={(movie) => {
-                this.setSelectedMovie(movie);
-              }}
-            />
-          ))
-        )}
-      </div>
-    );
+    // return (
+    //   <div className="main-view">
+    //     {selectedMovie ? (
+    //       <MovieView
+    //         movie={selectedMovie}
+    //         onBackClick={(newSelectedMovie) => {
+    //           this.setSelectedMovie(newSelectedMovie);
+    //         }}
+    //       />
+    //     ) : (
+    //       movies.map((movie) => (
+    //         <MovieCard
+    //           key={movie._id}
+    //           movie={movie}
+    //           onMovieClick={(movie) => {
+    //             this.setSelectedMovie(movie);
+    //           }}
+    //         />
+    //       ))
+    //     )}
+    //   </div>
+    // );
   }
 }
 export default MainView;

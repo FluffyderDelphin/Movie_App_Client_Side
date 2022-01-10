@@ -22899,6 +22899,7 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _loginView = require("../login view/login-view");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
+var _registrationView = require("../registration-view/registration-view");
 class MainView extends _reactDefault.default.Component {
     constructor(){
         super();
@@ -22917,9 +22918,9 @@ class MainView extends _reactDefault.default.Component {
             console.log(error);
         });
     }
-    setSelectedMovie(movie1) {
+    setSelectedMovie(movie) {
         this.setState({
-            selectedMovie: movie1
+            selectedMovie: movie
         });
     }
     onLoggidIn(user) {
@@ -22928,60 +22929,40 @@ class MainView extends _reactDefault.default.Component {
         });
     }
     render() {
-        const { movies , selectedMovie , user: user1  } = this.state;
-        console.log(movies);
-        if (!user1) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
-            onLoggedIn: (user)=>this.onLoggidIn(user)
-            ,
+        const { movies , selectedMovie , user  } = this.state;
+        return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegisterView, {
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 43,
-                columnNumber: 14
+                lineNumber: 42,
+                columnNumber: 12
             },
             __self: this
         }));
-        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            className: "main-view",
-            __source: {
-                fileName: "src/components/main-view/main-view.js",
-                lineNumber: 45,
-                columnNumber: 37
-            },
-            __self: this
-        }));
-        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            className: "main-view",
-            __source: {
-                fileName: "src/components/main-view/main-view.js",
-                lineNumber: 48,
-                columnNumber: 7
-            },
-            __self: this,
-            children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
-                movie: selectedMovie,
-                onBackClick: (newSelectedMovie)=>{
-                    this.setSelectedMovie(newSelectedMovie);
-                },
-                __source: {
-                    fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 50,
-                    columnNumber: 11
-                },
-                __self: this
-            }) : movies.map((movie2)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                    movie: movie2,
-                    onMovieClick: (movie)=>{
-                        this.setSelectedMovie(movie);
-                    },
-                    __source: {
-                        fileName: "src/components/main-view/main-view.js",
-                        lineNumber: 58,
-                        columnNumber: 13
-                    },
-                    __self: this
-                }, movie2._id)
-            )
-        }));
+    // if (!user)
+    //   return <LoginView onLoggedIn={(user) => this.onLoggidIn(user)} />;
+    // if (movies.length === 0) return <div className="main-view" />;
+    // return (
+    //   <div className="main-view">
+    //     {selectedMovie ? (
+    //       <MovieView
+    //         movie={selectedMovie}
+    //         onBackClick={(newSelectedMovie) => {
+    //           this.setSelectedMovie(newSelectedMovie);
+    //         }}
+    //       />
+    //     ) : (
+    //       movies.map((movie) => (
+    //         <MovieCard
+    //           key={movie._id}
+    //           movie={movie}
+    //           onMovieClick={(movie) => {
+    //             this.setSelectedMovie(movie);
+    //           }}
+    //         />
+    //       ))
+    //     )}
+    //   </div>
+    // );
     }
 }
 exports.default = MainView;
@@ -22991,7 +22972,7 @@ exports.default = MainView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","../movie-card/movie-card":"dBjSj","../movie-view/movie-view":"gP3Ur","axios":"1IeuP","../login view/login-view":"JJcoz"}],"dBjSj":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","../movie-card/movie-card":"dBjSj","../movie-view/movie-view":"gP3Ur","axios":"1IeuP","../login view/login-view":"JJcoz","../registration-view/registration-view":"c9eAt"}],"dBjSj":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0690 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -25517,6 +25498,151 @@ var _c;
 $RefreshReg$(_c, "LoginView");
 
   $parcel$ReactRefreshHelpers$67a0.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"c9eAt":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$b4f8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b4f8.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "RegisterView", ()=>RegisterView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+function RegisterView() {
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const [birthday, setBirthday] = _react.useState('');
+    const [email, setEmail] = _react.useState('');
+    return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
+        __source: {
+            fileName: "src/components/registration-view/registration-view.js",
+            lineNumber: 11,
+            columnNumber: 5
+        },
+        __self: this,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "src/components/registration-view/registration-view.js",
+                    lineNumber: 12,
+                    columnNumber: 7
+                },
+                __self: this,
+                children: [
+                    "Username:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "text",
+                        value: username,
+                        onChange: (e)=>setUsername(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "src/components/registration-view/registration-view.js",
+                            lineNumber: 14,
+                            columnNumber: 9
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "src/components/registration-view/registration-view.js",
+                    lineNumber: 20,
+                    columnNumber: 7
+                },
+                __self: this,
+                children: [
+                    "Password:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "password",
+                        value: password,
+                        onChange: (e)=>setPassword(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "src/components/registration-view/registration-view.js",
+                            lineNumber: 22,
+                            columnNumber: 9
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "src/components/registration-view/registration-view.js",
+                    lineNumber: 28,
+                    columnNumber: 7
+                },
+                __self: this,
+                children: [
+                    "Email:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "text",
+                        value: email,
+                        onChange: (e)=>setEmail(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "src/components/registration-view/registration-view.js",
+                            lineNumber: 30,
+                            columnNumber: 9
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "src/components/registration-view/registration-view.js",
+                    lineNumber: 36,
+                    columnNumber: 7
+                },
+                __self: this,
+                children: [
+                    "Birthday:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "date",
+                        value: birthday,
+                        onChange: (e)=>setBirthday(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "src/components/registration-view/registration-view.js",
+                            lineNumber: 38,
+                            columnNumber: 9
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                type: "submit",
+                onClick: console.log('User has been registerd!'),
+                __source: {
+                    fileName: "src/components/registration-view/registration-view.js",
+                    lineNumber: 45,
+                    columnNumber: 7
+                },
+                __self: this,
+                children: "Submit"
+            })
+        ]
+    }));
+}
+_s(RegisterView, "MWj3HdQRSj+7T3fdvwpRB3t7hec=");
+_c = RegisterView;
+var _c;
+$RefreshReg$(_c, "RegisterView");
+
+  $parcel$ReactRefreshHelpers$b4f8.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
