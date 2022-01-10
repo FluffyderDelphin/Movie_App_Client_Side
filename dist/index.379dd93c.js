@@ -25523,10 +25523,14 @@ function RegisterView() {
     const [password, setPassword] = _react.useState('');
     const [birthday, setBirthday] = _react.useState('');
     const [email, setEmail] = _react.useState('');
+    const handleRegistration = (e)=>{
+        e.preventDefault();
+        console.log('User has been registred');
+    };
     return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
         __source: {
             fileName: "src/components/registration-view/registration-view.js",
-            lineNumber: 11,
+            lineNumber: 15,
             columnNumber: 5
         },
         __self: this,
@@ -25534,7 +25538,7 @@ function RegisterView() {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.js",
-                    lineNumber: 12,
+                    lineNumber: 16,
                     columnNumber: 7
                 },
                 __self: this,
@@ -25547,7 +25551,7 @@ function RegisterView() {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.js",
-                            lineNumber: 14,
+                            lineNumber: 18,
                             columnNumber: 9
                         },
                         __self: this
@@ -25557,7 +25561,7 @@ function RegisterView() {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.js",
-                    lineNumber: 20,
+                    lineNumber: 24,
                     columnNumber: 7
                 },
                 __self: this,
@@ -25570,7 +25574,7 @@ function RegisterView() {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.js",
-                            lineNumber: 22,
+                            lineNumber: 26,
                             columnNumber: 9
                         },
                         __self: this
@@ -25580,7 +25584,7 @@ function RegisterView() {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.js",
-                    lineNumber: 28,
+                    lineNumber: 32,
                     columnNumber: 7
                 },
                 __self: this,
@@ -25593,7 +25597,7 @@ function RegisterView() {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.js",
-                            lineNumber: 30,
+                            lineNumber: 34,
                             columnNumber: 9
                         },
                         __self: this
@@ -25603,7 +25607,7 @@ function RegisterView() {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.js",
-                    lineNumber: 36,
+                    lineNumber: 40,
                     columnNumber: 7
                 },
                 __self: this,
@@ -25616,7 +25620,7 @@ function RegisterView() {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.js",
-                            lineNumber: 38,
+                            lineNumber: 42,
                             columnNumber: 9
                         },
                         __self: this
@@ -25625,10 +25629,10 @@ function RegisterView() {
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("button", {
                 type: "submit",
-                onClick: console.log('User has been registerd!'),
+                onClick: handleRegistration,
                 __source: {
                     fileName: "src/components/registration-view/registration-view.js",
-                    lineNumber: 45,
+                    lineNumber: 49,
                     columnNumber: 7
                 },
                 __self: this,

@@ -1,11 +1,15 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 export function RegisterView() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [birthday, setBirthday] = useState('');
   const [email, setEmail] = useState('');
+
+  const handleRegistration = (e) => {
+    e.preventDefault();
+    console.log('User has been registred');
+  };
 
   return (
     <form>
@@ -42,7 +46,7 @@ export function RegisterView() {
         />
       </label>
 
-      <button type="submit" onClick={console.log('User has been registerd!')}>
+      <button type="submit" onClick={handleRegistration}>
         Submit
       </button>
     </form>
