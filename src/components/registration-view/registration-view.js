@@ -46,11 +46,20 @@ export function RegisterView(props) {
           Submit
         </button>
       </form>
-      <button>Back</button>
+      <button
+        onClick={() => {
+          onReturnClick(null);
+        }}
+      >
+        Back
+      </button>
     </>
   );
 }
-LoginView.PropTypes = {
-  username: PropTypes.string,
-  password: PropTypes.string,
+
+RegisterView.propTypes = {
+  username: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  birthday: PropTypes.date,
 };

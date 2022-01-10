@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { RegisterView } from '../registration-view/registration-view';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -33,11 +34,17 @@ export function LoginView(props) {
           Submit
         </button>
       </form>
-      <button>Register</button>
+      <button
+        onClick={() => {
+          register();
+        }}
+      >
+        Register
+      </button>
     </>
   );
 }
-LoginView.PropTypes = {
-  username: PropTypes.string,
-  password: PropTypes.string,
-};
+// LoginView.propTypes = {
+//   username: PropTypes.string.isRequired,
+//   password: PropTypes.string.isRequired,
+// };
