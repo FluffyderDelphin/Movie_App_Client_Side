@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { RegisterView } from '../registration-view/registration-view';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -12,39 +11,26 @@ export function LoginView(props) {
   };
 
   return (
-    <>
-      <form>
-        <label>
-          Username:
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <button type="submit" onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
-      <button
-        onClick={() => {
-          register();
-        }}
-      >
-        Register
+    <form>
+      <label>
+        Username:
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </label>
+      <label>
+        Password:
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </label>
+      <button type="submit" onClick={handleSubmit}>
+        Submit
       </button>
-    </>
+    </form>
   );
 }
-// LoginView.propTypes = {
-//   username: PropTypes.string.isRequired,
-//   password: PropTypes.string.isRequired,
-// };
