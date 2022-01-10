@@ -22906,7 +22906,8 @@ class MainView extends _reactDefault.default.Component {
         this.state = {
             movies: [],
             selectedMovie: null,
-            user: null
+            user: null,
+            showRegisterView: false
         };
     }
     componentDidMount() {
@@ -22918,9 +22919,14 @@ class MainView extends _reactDefault.default.Component {
             console.log(error);
         });
     }
-    setSelectedMovie(movie) {
+    setSelectedMovie(movie1) {
         this.setState({
-            selectedMovie: movie
+            selectedMovie: movie1
+        });
+    }
+    setRegisterView(register) {
+        this.setState({
+            showRegisterView: register
         });
     }
     onLoggidIn(user) {
@@ -22929,40 +22935,67 @@ class MainView extends _reactDefault.default.Component {
         });
     }
     render() {
-        const { movies , selectedMovie , user  } = this.state;
-        return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegisterView, {
+        const { movies , selectedMovie , user: user1 , showRegisterView  } = this.state;
+        if (showRegisterView) return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegisterView, {
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 42,
-                columnNumber: 12
+                lineNumber: 48,
+                columnNumber: 34
             },
             __self: this
         }));
-    // if (!user)
-    //   return <LoginView onLoggedIn={(user) => this.onLoggidIn(user)} />;
-    // if (movies.length === 0) return <div className="main-view" />;
-    // return (
-    //   <div className="main-view">
-    //     {selectedMovie ? (
-    //       <MovieView
-    //         movie={selectedMovie}
-    //         onBackClick={(newSelectedMovie) => {
-    //           this.setSelectedMovie(newSelectedMovie);
-    //         }}
-    //       />
-    //     ) : (
-    //       movies.map((movie) => (
-    //         <MovieCard
-    //           key={movie._id}
-    //           movie={movie}
-    //           onMovieClick={(movie) => {
-    //             this.setSelectedMovie(movie);
-    //           }}
-    //         />
-    //       ))
-    //     )}
-    //   </div>
-    // );
+        if (!user1) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+            onLoggedIn: (user)=>this.onLoggidIn(user)
+            ,
+            __source: {
+                fileName: "src/components/main-view/main-view.js",
+                lineNumber: 51,
+                columnNumber: 14
+            },
+            __self: this
+        }));
+        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            className: "main-view",
+            __source: {
+                fileName: "src/components/main-view/main-view.js",
+                lineNumber: 53,
+                columnNumber: 37
+            },
+            __self: this
+        }));
+        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            className: "main-view",
+            __source: {
+                fileName: "src/components/main-view/main-view.js",
+                lineNumber: 56,
+                columnNumber: 7
+            },
+            __self: this,
+            children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
+                movie: selectedMovie,
+                onBackClick: (newSelectedMovie)=>{
+                    this.setSelectedMovie(newSelectedMovie);
+                },
+                __source: {
+                    fileName: "src/components/main-view/main-view.js",
+                    lineNumber: 58,
+                    columnNumber: 11
+                },
+                __self: this
+            }) : movies.map((movie2)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                    movie: movie2,
+                    onMovieClick: (movie)=>{
+                        this.setSelectedMovie(movie);
+                    },
+                    __source: {
+                        fileName: "src/components/main-view/main-view.js",
+                        lineNumber: 66,
+                        columnNumber: 13
+                    },
+                    __self: this
+                }, movie2._id)
+            )
+        }));
     }
 }
 exports.default = MainView;

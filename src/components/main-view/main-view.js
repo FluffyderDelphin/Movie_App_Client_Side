@@ -13,6 +13,7 @@ export class MainView extends React.Component {
       movies: [],
       selectedMovie: null,
       user: null,
+      showRegisterView: false,
     };
   }
   componentDidMount() {
@@ -32,41 +33,47 @@ export class MainView extends React.Component {
       selectedMovie: movie,
     });
   }
+  setRegisterView(register) {
+    this.setState({
+      showRegisterView: register,
+    });
+  }
   onLoggidIn(user) {
     this.setState({
       user,
     });
   }
   render() {
-    const { movies, selectedMovie, user } = this.state;
-    return <RegisterView />;
-    // if (!user)
-    //   return <LoginView onLoggedIn={(user) => this.onLoggidIn(user)} />;
+    const { movies, selectedMovie, user, showRegisterView } = this.state;
+    if (showRegisterView) return <RegisterView />;
 
-    // if (movies.length === 0) return <div className="main-view" />;
+    if (!user)
+      return <LoginView onLoggedIn={(user) => this.onLoggidIn(user)} />;
 
-    // return (
-    //   <div className="main-view">
-    //     {selectedMovie ? (
-    //       <MovieView
-    //         movie={selectedMovie}
-    //         onBackClick={(newSelectedMovie) => {
-    //           this.setSelectedMovie(newSelectedMovie);
-    //         }}
-    //       />
-    //     ) : (
-    //       movies.map((movie) => (
-    //         <MovieCard
-    //           key={movie._id}
-    //           movie={movie}
-    //           onMovieClick={(movie) => {
-    //             this.setSelectedMovie(movie);
-    //           }}
-    //         />
-    //       ))
-    //     )}
-    //   </div>
-    // );
+    if (movies.length === 0) return <div className="main-view" />;
+
+    return (
+      <div className="main-view">
+        {selectedMovie ? (
+          <MovieView
+            movie={selectedMovie}
+            onBackClick={(newSelectedMovie) => {
+              this.setSelectedMovie(newSelectedMovie);
+            }}
+          />
+        ) : (
+          movies.map((movie) => (
+            <MovieCard
+              key={movie._id}
+              movie={movie}
+              onMovieClick={(movie) => {
+                this.setSelectedMovie(movie);
+              }}
+            />
+          ))
+        )}
+      </div>
+    );
   }
 }
 export default MainView;
