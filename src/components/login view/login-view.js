@@ -44,6 +44,6 @@ export function LoginView({ onLoggedIn, onRegisterClick }) {
 }
 
 LoginView.propTypes = {
-  onLoggedIn: PropTypes.func,
-  onRegisterClick: PropTypes.func,
+  onLoggedIn: PropTypes.func.isRequired,
+  onRegisterClick: PropTypes.func.isRequired,
 };

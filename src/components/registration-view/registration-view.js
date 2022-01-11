@@ -56,5 +56,5 @@ export function RegisterView({ closeRegisterView }) {
 }
 
 RegisterView.propType = {
-  closeRegisterView: PropTypes.func,
+  closeRegisterView: PropTypes.func.isRequired,
 };

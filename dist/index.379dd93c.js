@@ -23882,7 +23882,7 @@ MovieView.propTypes = {
         description: _propTypesDefault.default.string,
         imageurl: _propTypesDefault.default.string
     }).isRequired,
-    onBackClick: _propTypesDefault.default.func
+    onBackClick: _propTypesDefault.default.func.isRequired
 };
 
   $parcel$ReactRefreshHelpers$1dc6.postlude(module);
@@ -25557,8 +25557,8 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
 _s(LoginView, "wuQOK7xaXdVz4RMrZQhWbI751Oc=");
 _c = LoginView;
 LoginView.propTypes = {
-    onLoggedIn: _propTypesDefault.default.func,
-    onRegisterClick: _propTypesDefault.default.func
+    onLoggedIn: _propTypesDefault.default.func.isRequired,
+    onRegisterClick: _propTypesDefault.default.func.isRequired
 };
 var _c;
 $RefreshReg$(_c, "LoginView");
@@ -25713,7 +25713,7 @@ function RegisterView({ closeRegisterView  }) {
 _s(RegisterView, "MWj3HdQRSj+7T3fdvwpRB3t7hec=");
 _c = RegisterView;
 RegisterView.propType = {
-    closeRegisterView: _propTypesDefault.default.func
+    closeRegisterView: _propTypesDefault.default.func.isRequired
 };
 var _c;
 $RefreshReg$(_c, "RegisterView");
