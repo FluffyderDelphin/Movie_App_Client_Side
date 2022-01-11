@@ -23046,7 +23046,7 @@ class MovieCard extends _reactDefault.default.Component {
 }
 MovieCard.propTypes = {
     movie: _propTypesDefault.default.shape({
-        title: _propTypesDefault.default.string,
+        title: _propTypesDefault.default.string.isRequired,
         description: _propTypesDefault.default.string.isRequired,
         imageurl: _propTypesDefault.default.string.isRequired
     }).isRequired,
@@ -23878,9 +23878,9 @@ class MovieView extends _reactDefault.default.Component {
 }
 MovieView.propTypes = {
     movie: _propTypesDefault.default.shape({
-        title: _propTypesDefault.default.string,
-        description: _propTypesDefault.default.string,
-        imageurl: _propTypesDefault.default.string
+        title: _propTypesDefault.default.string.isRequired,
+        description: _propTypesDefault.default.string.isRequired,
+        imageurl: _propTypesDefault.default.string.isRequired
     }).isRequired,
     onBackClick: _propTypesDefault.default.func.isRequired
 };
