@@ -45,14 +45,19 @@ export class MainView extends React.Component {
   }
   render() {
     const { movies, selectedMovie, user, showRegisterView } = this.state;
-    if (showRegisterView) return <RegisterView />;
+    if (showRegisterView)
+      return (
+        <RegisterView
+          closeRegisterView={(value) => this.setRegisterView(value)}
+        />
+      );
 
     if (!user)
       return (
         <LoginView
           onLoggedIn={(user) => this.onLoggidIn(user)}
-          onRegisterClick={(registervalue) => {
-            this.setRegisterView(registervalue);
+          onRegisterClick={(value) => {
+            this.setRegisterView(value);
           }}
         />
       );

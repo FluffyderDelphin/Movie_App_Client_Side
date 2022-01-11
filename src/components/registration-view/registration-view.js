@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export function RegisterView() {
+export function RegisterView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [birthday, setBirthday] = useState('');
@@ -9,6 +9,7 @@ export function RegisterView() {
   const handleRegistration = (e) => {
     e.preventDefault();
     console.log('User has been registred');
+    props.closeRegisterView(false);
   };
 
   return (

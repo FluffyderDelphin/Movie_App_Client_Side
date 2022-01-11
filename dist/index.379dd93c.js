@@ -22937,22 +22937,24 @@ class MainView extends _reactDefault.default.Component {
     render() {
         const { movies , selectedMovie , user: user1 , showRegisterView  } = this.state;
         if (showRegisterView) return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegisterView, {
+            closeRegisterView: (value)=>this.setRegisterView(value)
+            ,
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 48,
-                columnNumber: 34
+                lineNumber: 50,
+                columnNumber: 9
             },
             __self: this
         }));
         if (!user1) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
             onLoggedIn: (user)=>this.onLoggidIn(user)
             ,
-            onRegisterClick: (registervalue)=>{
-                this.setRegisterView(registervalue);
+            onRegisterClick: (value)=>{
+                this.setRegisterView(value);
             },
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 52,
+                lineNumber: 57,
                 columnNumber: 9
             },
             __self: this
@@ -22961,7 +22963,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 60,
+                lineNumber: 65,
                 columnNumber: 37
             },
             __self: this
@@ -22970,7 +22972,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 63,
+                lineNumber: 68,
                 columnNumber: 7
             },
             __self: this,
@@ -22981,7 +22983,7 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 65,
+                    lineNumber: 70,
                     columnNumber: 11
                 },
                 __self: this
@@ -22992,7 +22994,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.js",
-                        lineNumber: 73,
+                        lineNumber: 78,
                         columnNumber: 13
                     },
                     __self: this
@@ -25526,8 +25528,7 @@ function LoginView(props) {
                 children: "Submit"
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                onClick: (e)=>{
-                    e.preventDefault();
+                onClick: ()=>{
                     props.onRegisterClick(true);
                 },
                 __source: {
@@ -25566,7 +25567,7 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _s = $RefreshSig$();
-function RegisterView() {
+function RegisterView(props) {
     _s();
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
@@ -25575,11 +25576,12 @@ function RegisterView() {
     const handleRegistration = (e)=>{
         e.preventDefault();
         console.log('User has been registred');
+        props.closeRegisterView(false);
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
         __source: {
             fileName: "src/components/registration-view/registration-view.js",
-            lineNumber: 15,
+            lineNumber: 16,
             columnNumber: 5
         },
         __self: this,
@@ -25587,7 +25589,7 @@ function RegisterView() {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.js",
-                    lineNumber: 16,
+                    lineNumber: 17,
                     columnNumber: 7
                 },
                 __self: this,
@@ -25600,7 +25602,7 @@ function RegisterView() {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.js",
-                            lineNumber: 18,
+                            lineNumber: 19,
                             columnNumber: 9
                         },
                         __self: this
@@ -25610,7 +25612,7 @@ function RegisterView() {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.js",
-                    lineNumber: 24,
+                    lineNumber: 25,
                     columnNumber: 7
                 },
                 __self: this,
@@ -25623,7 +25625,7 @@ function RegisterView() {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.js",
-                            lineNumber: 26,
+                            lineNumber: 27,
                             columnNumber: 9
                         },
                         __self: this
@@ -25633,7 +25635,7 @@ function RegisterView() {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.js",
-                    lineNumber: 32,
+                    lineNumber: 33,
                     columnNumber: 7
                 },
                 __self: this,
@@ -25646,7 +25648,7 @@ function RegisterView() {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.js",
-                            lineNumber: 34,
+                            lineNumber: 35,
                             columnNumber: 9
                         },
                         __self: this
@@ -25656,7 +25658,7 @@ function RegisterView() {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.js",
-                    lineNumber: 40,
+                    lineNumber: 41,
                     columnNumber: 7
                 },
                 __self: this,
@@ -25669,7 +25671,7 @@ function RegisterView() {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.js",
-                            lineNumber: 42,
+                            lineNumber: 43,
                             columnNumber: 9
                         },
                         __self: this
@@ -25681,7 +25683,7 @@ function RegisterView() {
                 onClick: handleRegistration,
                 __source: {
                     fileName: "src/components/registration-view/registration-view.js",
-                    lineNumber: 49,
+                    lineNumber: 50,
                     columnNumber: 7
                 },
                 __self: this,
