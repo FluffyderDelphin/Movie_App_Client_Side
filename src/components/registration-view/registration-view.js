@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export function RegisterView(props) {
+export function RegisterView({ closeRegisterView }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [birthday, setBirthday] = useState('');
@@ -9,7 +10,7 @@ export function RegisterView(props) {
   const handleRegistration = (e) => {
     e.preventDefault();
     console.log('User has been registred');
-    props.closeRegisterView(false);
+    closeRegisterView(false);
   };
 
   return (
@@ -53,3 +54,7 @@ export function RegisterView(props) {
     </form>
   );
 }
+
+RegisterView.propType = {
+  closeRegisterView: PropTypes.func,
+};

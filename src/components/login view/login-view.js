@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export function LoginView(props) {
+export function LoginView({ onLoggedIn, onRegisterClick }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password);
-    props.onLoggedIn(username);
+    onLoggedIn(username);
   };
 
   return (
@@ -33,7 +34,7 @@ export function LoginView(props) {
       </button>
       <button
         onClick={() => {
-          props.onRegisterClick(true);
+          onRegisterClick(true);
         }}
       >
         Register
@@ -41,3 +42,8 @@ export function LoginView(props) {
     </form>
   );
 }
+
+LoginView.propTypes = {
+  onLoggedIn: PropTypes.func,
+  onRegisterClick: PropTypes.func,
+};

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
@@ -28,3 +28,12 @@ export class MovieView extends React.Component {
     );
   }
 }
+
+MovieView.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    imageurl: PropTypes.string,
+  }).isRequired,
+  onBackClick: PropTypes.func,
+};
