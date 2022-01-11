@@ -1,44 +1,68 @@
 import React from 'react';
+import axios from 'axios';
+
+import { LoginView } from '../login view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { RegisterView } from '../registration-view/registration-view';
 
 export class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [
-        {
-          _id: 1,
-          Title: 'Inception',
-          Description: 'desc1...',
-          ImagePath: '...',
-        },
-        {
-          _id: 2,
-          Title: 'The Shawshank Redemption',
-          Description: 'desc2...',
-          ImagePath: '...',
-        },
-        {
-          _id: 3,
-          Title: 'Gladiator',
-          Description: 'desc3...',
-          ImagePath: '...',
-        },
-      ],
+      movies: [],
       selectedMovie: null,
+      user: null,
+      showRegisterView: false,
     };
   }
-  setSelectedMovie(newSelectedMovie) {
+  componentDidMount() {
+    axios
+      .get('https://alexandersmovieapp.herokuapp.com/movies')
+      .then((response) => {
+        this.setState({
+          movies: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  setSelectedMovie(movie) {
     this.setState({
-      selectedMovie: newSelectedMovie,
+      selectedMovie: movie,
+    });
+  }
+  setRegisterView(register) {
+    this.setState({
+      showRegisterView: register,
+    });
+  }
+  onLoggidIn(user) {
+    this.setState({
+      user,
     });
   }
   render() {
-    const { movies, selectedMovie } = this.state;
+    const { movies, selectedMovie, user, showRegisterView } = this.state;
+    if (showRegisterView)
+      return (
+        <RegisterView
+          closeRegisterView={(value) => this.setRegisterView(value)}
+        />
+      );
 
-    if (movies.length === 0)
-      return <div className="main-view">The list is empty!</div>;
+    if (!user)
+      return (
+        <LoginView
+          onLoggedIn={(user) => this.onLoggidIn(user)}
+          onRegisterClick={(value) => {
+            this.setRegisterView(value);
+          }}
+        />
+      );
+
+    if (movies.length === 0) return <div className="main-view" />;
 
     return (
       <div className="main-view">
