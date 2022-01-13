@@ -23049,8 +23049,8 @@ class MainView extends _reactDefault.default.Component {
                                 columnNumber: 17
                             },
                             __self: this
-                        }, movie2._id)
-                    })
+                        })
+                    }, movie2._id)
                 )
             })
         }));
