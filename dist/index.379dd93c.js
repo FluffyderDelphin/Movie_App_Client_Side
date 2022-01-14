@@ -22917,6 +22917,7 @@ var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
+var _mainViewScss = require("./main-view.scss");
 class MainView extends _reactDefault.default.Component {
     constructor(){
         super();
@@ -22958,7 +22959,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 52,
+                lineNumber: 53,
                 columnNumber: 9
             },
             __self: this
@@ -22971,7 +22972,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 59,
+                lineNumber: 60,
                 columnNumber: 9
             },
             __self: this
@@ -22980,7 +22981,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 67,
+                lineNumber: 68,
                 columnNumber: 37
             },
             __self: this
@@ -22989,15 +22990,15 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 70,
+                lineNumber: 71,
                 columnNumber: 7
             },
             __self: this,
             children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
-                className: "justify-content-,d-center",
+                className: "justify-content-md-center",
                 __source: {
                     fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 72,
+                    lineNumber: 73,
                     columnNumber: 11
                 },
                 __self: this,
@@ -23005,7 +23006,7 @@ class MainView extends _reactDefault.default.Component {
                     md: 8,
                     __source: {
                         fileName: "src/components/main-view/main-view.js",
-                        lineNumber: 73,
+                        lineNumber: 74,
                         columnNumber: 13
                     },
                     __self: this,
@@ -23016,7 +23017,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.js",
-                            lineNumber: 74,
+                            lineNumber: 75,
                             columnNumber: 15
                         },
                         __self: this
@@ -23026,7 +23027,7 @@ class MainView extends _reactDefault.default.Component {
                 className: "justify-content-md-center",
                 __source: {
                     fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 83,
+                    lineNumber: 84,
                     columnNumber: 11
                 },
                 __self: this,
@@ -23034,7 +23035,7 @@ class MainView extends _reactDefault.default.Component {
                         md: 3,
                         __source: {
                             fileName: "src/components/main-view/main-view.js",
-                            lineNumber: 85,
+                            lineNumber: 86,
                             columnNumber: 15
                         },
                         __self: this,
@@ -23045,7 +23046,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 86,
+                                lineNumber: 87,
                                 columnNumber: 17
                             },
                             __self: this
@@ -23063,7 +23064,7 @@ exports.default = MainView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","../movie-card/movie-card":"dBjSj","../movie-view/movie-view":"gP3Ur","axios":"1IeuP","../login view/login-view":"JJcoz","../registration-view/registration-view":"c9eAt","react-bootstrap/Row":"eR7YE","react-bootstrap/Col":"kxhZp"}],"dBjSj":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","../movie-card/movie-card":"dBjSj","../movie-view/movie-view":"gP3Ur","axios":"1IeuP","../login view/login-view":"JJcoz","../registration-view/registration-view":"c9eAt","react-bootstrap/Row":"eR7YE","react-bootstrap/Col":"kxhZp","./main-view.scss":"hRkrD"}],"dBjSj":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0690 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -37632,6 +37633,6 @@ $RefreshReg$(_c, "RegisterView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","prop-types":"2bysO"}]},["emU3S","lBB98","hD4hw"], "hD4hw", "parcelRequirecdd9")
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","prop-types":"2bysO"}],"hRkrD":[function() {},{}]},["emU3S","lBB98","hD4hw"], "hD4hw", "parcelRequirecdd9")
 
 //# sourceMappingURL=index.379dd93c.js.map

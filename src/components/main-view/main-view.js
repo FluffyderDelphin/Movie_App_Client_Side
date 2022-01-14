@@ -7,6 +7,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { RegisterView } from '../registration-view/registration-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import './main-view.scss';
 
 export class MainView extends React.Component {
   constructor() {
@@ -69,7 +70,7 @@ export class MainView extends React.Component {
     return (
       <div className="main-view">
         {selectedMovie ? (
-          <Row className="justify-content-,d-center">
+          <Row className="justify-content-md-center">
             <Col md={8}>
               <MovieView
                 movie={selectedMovie}

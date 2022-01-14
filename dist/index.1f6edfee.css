@@ -1,5 +1,10 @@
 .movie-app {
   color: steelblue;
 }
-
+.cardContainer {
+  height: 100%;
+}
+.col-card {
+  margin-bottom: 20px;
+}
 /*# sourceMappingURL=index.1f6edfee.css.map */
