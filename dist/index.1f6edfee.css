@@ -1,8 +1,22 @@
+* {
+  font-size: 18px;
+}
+
 .movie-app {
   color: steelblue;
 }
 .cardContainer {
   height: 100%;
+}
+.loginTitle {
+  text-align: center;
+}
+
+.loginButtons {
+  margin: 10px;
+}
+.registerTitle {
+  text-align: center;
 }
 .col-card {
   margin-bottom: 20px;
