@@ -83,7 +83,7 @@ export class MainView extends React.Component {
         ) : (
           <Row className="justify-content-md-center">
             {movies.map((movie) => (
-              <Col md={3} key={movie._id}>
+              <Col md={3} key={movie._id} className="col-card">
                 <MovieCard
                   movie={movie}
                   onMovieClick={(movie) => {

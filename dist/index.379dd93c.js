@@ -23033,6 +23033,7 @@ class MainView extends _reactDefault.default.Component {
                 __self: this,
                 children: movies.map((movie2)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                         md: 3,
+                        className: "col-card",
                         __source: {
                             fileName: "src/components/main-view/main-view.js",
                             lineNumber: 86,
