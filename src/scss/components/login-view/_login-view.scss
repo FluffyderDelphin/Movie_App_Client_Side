@@ -1,6 +1,9 @@
+@use '../../colors/colors';
+
 .loginTitle {
   text-align: center;
 }
 .loginButtons {
+  background-color: colors.$primary-color;
   margin: 10px;
 }

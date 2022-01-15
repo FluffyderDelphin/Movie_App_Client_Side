@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { Col, Container, Row, Card } from 'react-bootstrap';
-import './login-view.scss';
+import { Card } from 'react-bootstrap';
+import '../../scss/components/login-view/_login-view.scss';
 
 export function LoginView({ onLoggedIn, onRegisterClick }) {
   const [username, setUsername] = useState('');
