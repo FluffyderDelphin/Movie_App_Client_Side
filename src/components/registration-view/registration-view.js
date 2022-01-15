@@ -18,66 +18,52 @@ export function RegisterView({ closeRegisterView }) {
   };
 
   return (
-    <Container className="registerContainer">
-      <Row className="justify-content-md-center">
-        <Col></Col>
-        <Col>
-          <Card>
-            <Card.Header>
-              <Card.Title className="registerTitle">Register</Card.Title>
-            </Card.Header>
-            <Card.Body>
-              <Form>
-                <Form.Group controlId="formUsername">
-                  <Form.Label>
-                    Username:
-                    <Form.Control
-                      type="text"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                    />
-                  </Form.Label>
-                </Form.Group>
-                <Form.Group controlId="formPassword">
-                  <Form.Label>
-                    Password:
-                    <Form.Control
-                      type="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </Form.Label>
-                </Form.Group>
-                <Form.Group controlId="formEmail">
-                  <Form.Label>
-                    Email:
-                    <Form.Control
-                      type="text"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </Form.Label>
-                </Form.Group>
-                <Form.Group controlId="formBirthday">
-                  <Form.Label>
-                    Birthday:
-                    <Form.Control
-                      type="date"
-                      value={birthday}
-                      onChange={(e) => setBirthday(e.target.value)}
-                    />
-                  </Form.Label>
-                </Form.Group>
-                <Button type="submit" onClick={handleRegistration}>
-                  Submit
-                </Button>
-              </Form>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col></Col>
-      </Row>
-    </Container>
+    <Card>
+      <Card.Header>
+        <Card.Title className="registerTitle">Register</Card.Title>
+      </Card.Header>
+      <Card.Body>
+        <Form>
+          <Card.Text>
+            <Form.Group controlId="formUsername">
+              <Form.Label>Username: </Form.Label>
+              <Form.Control
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group controlId="formPassword">
+              <Form.Label>Password: </Form.Label>
+              <Form.Control
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email: </Form.Label>
+              <Form.Control
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group controlId="formBirthday">
+              <Form.Label>Birthday: </Form.Label>
+              <Form.Control
+                type="date"
+                value={birthday}
+                onChange={(e) => setBirthday(e.target.value)}
+              />
+            </Form.Group>
+          </Card.Text>
+          <Button type="submit" onClick={handleRegistration}>
+            Submit
+          </Button>
+        </Form>
+      </Card.Body>
+    </Card>
   );
 }
 
