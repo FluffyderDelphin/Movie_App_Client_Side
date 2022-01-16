@@ -23144,6 +23144,7 @@ class MovieCard extends _reactDefault.default.Component {
                     __self: this
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
+                    className: "cardBody",
                     __source: {
                         fileName: "src/components/movie-card/movie-card.js",
                         lineNumber: 13,
@@ -24339,6 +24340,7 @@ class MovieView extends _reactDefault.default.Component {
                     })
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
+                    className: "cardBody",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.js",
                         lineNumber: 15,
@@ -24383,21 +24385,21 @@ class MovieView extends _reactDefault.default.Component {
                                 __self: this,
                                 children: movie.description
                             })
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                            onClick: ()=>{
-                                onBackClick(null);
-                            },
-                            className: "cardBtn",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.js",
-                                lineNumber: 22,
-                                columnNumber: 11
-                            },
-                            __self: this,
-                            children: "Back"
                         })
                     ]
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                    onClick: ()=>{
+                        onBackClick(null);
+                    },
+                    className: "cardBtn",
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.js",
+                        lineNumber: 23,
+                        columnNumber: 9
+                    },
+                    __self: this,
+                    children: "Back"
                 })
             ]
         }));

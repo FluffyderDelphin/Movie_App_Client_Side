@@ -12,22 +12,22 @@ export class MovieView extends React.Component {
         <div className="movie-poster">
           <Card.Img src={movie.imageurl} />
         </div>
-        <Card.Body>
+        <Card.Body className="cardBody">
           <Card.Title className="movie-title">
             <span className="value">{movie.title}</span>
           </Card.Title>
           <Card.Text className="movie-description">
             <span className="value">{movie.description}</span>
           </Card.Text>
-          <Button
-            onClick={() => {
-              onBackClick(null);
-            }}
-            className="cardBtn"
-          >
-            Back
-          </Button>
         </Card.Body>
+        <Button
+          onClick={() => {
+            onBackClick(null);
+          }}
+          className="cardBtn"
+        >
+          Back
+        </Button>
       </Card>
     );
   }

@@ -1,1 +1,25 @@
 @use '../../colors';
+
+.btn.cardBtn {
+  background-color: darken(colors.$primary-color, 15%);
+  border-color: darken(colors.$primary-color, 15%);
+  color: #fff;
+  margin: 10px;
+
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.btn.cardBtn:hover,
+.btn.cardBtn:focus,
+.btn.cardBtn:active {
+  background-color: darken(colors.$primary-color, 25%);
+  border-color: darken(colors.$primary-color, 25%);
+  color: #fff;
+}
+
+.card-body.cardBody {
+  position: relative;
+  padding-bottom: 70px;
+}
