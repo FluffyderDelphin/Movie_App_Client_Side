@@ -1,17 +1,18 @@
 @use '../../colors';
 
-.loginTitle {
+.registerTitle {
   text-align: center;
 }
-.btn.loginButtons {
+
+.btn.regButtons {
   background-color: darken(colors.$primary-color, 15%);
   border-color: darken(colors.$primary-color, 15%);
   margin: 10px;
 }
 
-.btn.loginButtons:hover,
-.btn.loginButtons:focus,
-.btn.loginButtons:active {
+.btn.regButtons:hover,
+.btn.regButtons:focus,
+.btn.regButtons:active {
   background-color: darken(colors.$primary-color, 25%);
   border-color: darken(colors.$primary-color, 25%);
 }

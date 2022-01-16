@@ -1,0 +1,26 @@
+.cardContainer {
+  height: 100%;
+}
+
+.btn.cardBtn {
+  background-color: #ffa915;
+  border-color: #ffa915;
+  color: #fff;
+  margin: 10px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.btn.cardBtn:hover,
+.btn.cardBtn:focus,
+.btn.cardBtn:active {
+  background-color: #e18e00;
+  border-color: #e18e00;
+  color: #fff;
+}
+
+.card-body.cardBody {
+  position: relative;
+  padding-bottom: 60px;
+}
+/*# sourceMappingURL=movie-card.css.map */

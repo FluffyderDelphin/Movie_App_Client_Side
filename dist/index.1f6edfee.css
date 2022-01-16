@@ -1,4 +1,90 @@
+* {
+  font-size: 18px;
+}
+
 .movie-app {
   color: steelblue;
+}
+.cardContainer {
+  height: 100%;
+}
+
+.btn.cardBtn {
+  background-color: #ffa915;
+  border-color: #ffa915;
+  color: #fff;
+  margin: 10px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.btn.cardBtn:hover,
+.btn.cardBtn:focus,
+.btn.cardBtn:active {
+  background-color: #e18e00;
+  border-color: #e18e00;
+  color: #fff;
+}
+
+.card-body.cardBody {
+  position: relative;
+  padding-bottom: 60px;
+}
+.btn.cardBtn {
+  background-color: #ffa915;
+  border-color: #ffa915;
+  color: #fff;
+  margin: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.btn.cardBtn:hover,
+.btn.cardBtn:focus,
+.btn.cardBtn:active {
+  background-color: #e18e00;
+  border-color: #e18e00;
+  color: #fff;
+}
+
+.card-body.cardBody {
+  position: relative;
+  padding-bottom: 70px;
+}
+.loginTitle {
+  text-align: center;
+}
+
+.btn.loginButtons {
+  background-color: #ffa915;
+  border-color: #ffa915;
+  margin: 10px;
+}
+
+.btn.loginButtons:hover,
+.btn.loginButtons:focus,
+.btn.loginButtons:active {
+  background-color: #e18e00;
+  border-color: #e18e00;
+}
+.registerTitle {
+  text-align: center;
+}
+
+.btn.regButtons {
+  background-color: #ffa915;
+  border-color: #ffa915;
+  margin: 10px;
+}
+
+.btn.regButtons:hover,
+.btn.regButtons:focus,
+.btn.regButtons:active {
+  background-color: #e18e00;
+  border-color: #e18e00;
+}
+.col-card {
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=index.1f6edfee.css.map */
