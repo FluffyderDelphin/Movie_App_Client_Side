@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import './movie-view.scss';
 export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
@@ -22,6 +23,7 @@ export class MovieView extends React.Component {
             onClick={() => {
               onBackClick(null);
             }}
+            className="cardBtn"
           >
             Back
           </Button>

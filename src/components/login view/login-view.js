@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Card } from 'react-bootstrap';
-import '../../scss/components/login-view/_login-view.scss';
+import './login-view.scss';
 
 export function LoginView({ onLoggedIn, onRegisterClick }) {
   const [username, setUsername] = useState('');
@@ -22,22 +22,21 @@ export function LoginView({ onLoggedIn, onRegisterClick }) {
       </Card.Header>
       <Card.Body>
         <Form>
-          <Card.Text>
-            <Form.Group controlId="formUsername">
-              <Form.Label>Username:</Form.Label>
-              <Form.Control
-                type="text"
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="formPassword">
-              <Form.Label>Password: </Form.Label>
-              <Form.Control
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
-          </Card.Text>
+          <Form.Group controlId="formUsername">
+            <Form.Label>Username:</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group controlId="formPassword">
+            <Form.Label>Password: </Form.Label>
+            <Form.Control
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+
           <Button
             className="loginButtons"
             variant="primary"

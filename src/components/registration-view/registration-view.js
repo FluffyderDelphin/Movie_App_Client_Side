@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { Container, Col, Row, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import './registration-view.scss';
 
 export function RegisterView({ closeRegisterView }) {
@@ -24,41 +24,44 @@ export function RegisterView({ closeRegisterView }) {
       </Card.Header>
       <Card.Body>
         <Form>
-          <Card.Text>
-            <Form.Group controlId="formUsername">
-              <Form.Label>Username: </Form.Label>
-              <Form.Control
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="formPassword">
-              <Form.Label>Password: </Form.Label>
-              <Form.Control
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="formEmail">
-              <Form.Label>Email: </Form.Label>
-              <Form.Control
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="formBirthday">
-              <Form.Label>Birthday: </Form.Label>
-              <Form.Control
-                type="date"
-                value={birthday}
-                onChange={(e) => setBirthday(e.target.value)}
-              />
-            </Form.Group>
-          </Card.Text>
-          <Button type="submit" onClick={handleRegistration}>
+          <Form.Group controlId="formUsername">
+            <Form.Label>Username: </Form.Label>
+            <Form.Control
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group controlId="formPassword">
+            <Form.Label>Password: </Form.Label>
+            <Form.Control
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group controlId="formEmail">
+            <Form.Label>Email: </Form.Label>
+            <Form.Control
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group controlId="formBirthday">
+            <Form.Label>Birthday: </Form.Label>
+            <Form.Control
+              type="date"
+              value={birthday}
+              onChange={(e) => setBirthday(e.target.value)}
+            />
+          </Form.Group>
+
+          <Button
+            type="submit"
+            onClick={handleRegistration}
+            className="regButtons"
+          >
             Submit
           </Button>
         </Form>

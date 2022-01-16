@@ -9,7 +9,7 @@ class Movieapp extends React.Component {
   render() {
     return (
       <Container>
-        <Mainview />;
+        <Mainview />
       </Container>
     );
   }

@@ -1,20 +1,17 @@
 @use '../../colors';
 
-.cardContainer {
-  height: 100%;
+.loginTitle {
+  text-align: center;
 }
-
-.btn.cardBtn {
+.btn.loginButtons {
   background-color: darken(colors.$primary-color, 15%);
   border-color: darken(colors.$primary-color, 15%);
-  color: #fff;
   margin: 10px;
 }
 
-.btn.cardBtn:hover,
-.btn.cardBtn:focus,
-.btn.cardBtn:active {
+.btn.loginButtons:hover,
+.btn.loginButtons:focus,
+.btn.loginButtons:active {
   background-color: darken(colors.$primary-color, 25%);
   border-color: darken(colors.$primary-color, 25%);
-  color: #fff;
 }
