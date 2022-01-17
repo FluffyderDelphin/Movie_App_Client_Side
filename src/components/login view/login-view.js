@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Card } from 'react-bootstrap';
 import './login-view.scss';
+import axios from 'axios';
 
 export function LoginView({ onLoggedIn, onRegisterClick }) {
   const [username, setUsername] = useState('');
@@ -11,8 +12,20 @@ export function LoginView({ onLoggedIn, onRegisterClick }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
-    onLoggedIn(username);
+    // console.log(username, password);
+    // onLoggedIn(username);
+    axios
+      .post('https://alexandersmovieapp.herokuapp.com/login', {
+        username: username,
+        password: password,
+      })
+      .then((response) => {
+        const data = response.data;
+        onLoggedIn(data);
+      })
+      .catch((e) => {
+        console.log(`User with the Name ${username} not found`);
+      });
   };
 
   return (

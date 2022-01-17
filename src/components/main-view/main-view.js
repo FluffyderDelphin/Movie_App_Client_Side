@@ -31,6 +31,22 @@ export class MainView extends React.Component {
         console.log(error);
       });
   }
+
+  getMovies(token) {
+    axios
+      .get('https://alexandersmovieapp.herokuapp.com/movies', {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        this.setState({
+          movies: response.date,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   setSelectedMovie(movie) {
     this.setState({
       selectedMovie: movie,
@@ -41,10 +57,15 @@ export class MainView extends React.Component {
       showRegisterView: register,
     });
   }
-  onLoggidIn(user) {
+  onLoggidIn(authData) {
+    console.log(authData);
     this.setState({
-      user,
+      user: authData.user.username,
     });
+
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.username);
+    this.getMovies(authData.token);
   }
   render() {
     const { movies, selectedMovie, user, showRegisterView } = this.state;

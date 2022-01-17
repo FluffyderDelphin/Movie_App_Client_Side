@@ -22934,6 +22934,19 @@ class MainView extends _reactDefault.default.Component {
             console.log(error);
         });
     }
+    getMovies(token) {
+        _axiosDefault.default.get('https://alexandersmovieapp.herokuapp.com/movies', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            this.setState({
+                movies: response.date
+            });
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
     setSelectedMovie(movie1) {
         this.setState({
             selectedMovie: movie1
@@ -22944,10 +22957,14 @@ class MainView extends _reactDefault.default.Component {
             showRegisterView: register
         });
     }
-    onLoggidIn(user) {
+    onLoggidIn(authData) {
+        console.log(authData);
         this.setState({
-            user
+            user: authData.user.username
         });
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user', authData.user.username);
+        this.getMovies(authData.token);
     }
     render() {
         const { movies , selectedMovie , user: user1 , showRegisterView  } = this.state;
@@ -22955,7 +22972,7 @@ class MainView extends _reactDefault.default.Component {
             className: "justify-content-md-center",
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 53,
+                lineNumber: 74,
                 columnNumber: 9
             },
             __self: this,
@@ -22963,7 +22980,7 @@ class MainView extends _reactDefault.default.Component {
                 lg: 4,
                 __source: {
                     fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 54,
+                    lineNumber: 75,
                     columnNumber: 11
                 },
                 __self: this,
@@ -22972,7 +22989,7 @@ class MainView extends _reactDefault.default.Component {
                     ,
                     __source: {
                         fileName: "src/components/main-view/main-view.js",
-                        lineNumber: 55,
+                        lineNumber: 76,
                         columnNumber: 13
                     },
                     __self: this
@@ -22983,7 +23000,7 @@ class MainView extends _reactDefault.default.Component {
             className: "justify-content-md-center",
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 64,
+                lineNumber: 85,
                 columnNumber: 9
             },
             __self: this,
@@ -22991,7 +23008,7 @@ class MainView extends _reactDefault.default.Component {
                 lg: 4,
                 __source: {
                     fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 65,
+                    lineNumber: 86,
                     columnNumber: 11
                 },
                 __self: this,
@@ -23003,7 +23020,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.js",
-                        lineNumber: 66,
+                        lineNumber: 87,
                         columnNumber: 13
                     },
                     __self: this
@@ -23014,7 +23031,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 76,
+                lineNumber: 97,
                 columnNumber: 37
             },
             __self: this
@@ -23023,7 +23040,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 79,
+                lineNumber: 100,
                 columnNumber: 7
             },
             __self: this,
@@ -23031,7 +23048,7 @@ class MainView extends _reactDefault.default.Component {
                 className: "justify-content-md-center",
                 __source: {
                     fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 81,
+                    lineNumber: 102,
                     columnNumber: 11
                 },
                 __self: this,
@@ -23039,7 +23056,7 @@ class MainView extends _reactDefault.default.Component {
                     md: 8,
                     __source: {
                         fileName: "src/components/main-view/main-view.js",
-                        lineNumber: 82,
+                        lineNumber: 103,
                         columnNumber: 13
                     },
                     __self: this,
@@ -23050,7 +23067,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.js",
-                            lineNumber: 83,
+                            lineNumber: 104,
                             columnNumber: 15
                         },
                         __self: this
@@ -23060,7 +23077,7 @@ class MainView extends _reactDefault.default.Component {
                 className: "justify-content-md-center",
                 __source: {
                     fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 92,
+                    lineNumber: 113,
                     columnNumber: 11
                 },
                 __self: this,
@@ -23071,7 +23088,7 @@ class MainView extends _reactDefault.default.Component {
                         className: "col-card",
                         __source: {
                             fileName: "src/components/main-view/main-view.js",
-                            lineNumber: 94,
+                            lineNumber: 115,
                             columnNumber: 15
                         },
                         __self: this,
@@ -23082,7 +23099,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 95,
+                                lineNumber: 116,
                                 columnNumber: 17
                             },
                             __self: this
@@ -25999,6 +26016,8 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _reactBootstrap = require("react-bootstrap");
 var _loginViewScss = require("./login-view.scss");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _s = $RefreshSig$();
 function LoginView({ onLoggedIn , onRegisterClick  }) {
     _s();
@@ -26006,13 +26025,22 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
     const [password, setPassword] = _react.useState('');
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(username, password);
-        onLoggedIn(username);
+        // console.log(username, password);
+        // onLoggedIn(username);
+        _axiosDefault.default.post('https://alexandersmovieapp.herokuapp.com/login', {
+            username: username,
+            password: password
+        }).then((response)=>{
+            const data = response.data;
+            onLoggedIn(data);
+        }).catch((e)=>{
+            console.log(`User with the Name ${username} not found`);
+        });
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
         __source: {
             fileName: "src/components/login view/login-view.js",
-            lineNumber: 19,
+            lineNumber: 32,
             columnNumber: 5
         },
         __self: this,
@@ -26020,7 +26048,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Header, {
                 __source: {
                     fileName: "src/components/login view/login-view.js",
-                    lineNumber: 20,
+                    lineNumber: 33,
                     columnNumber: 7
                 },
                 __self: this,
@@ -26028,7 +26056,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                     className: "loginTitle",
                     __source: {
                         fileName: "src/components/login view/login-view.js",
-                        lineNumber: 21,
+                        lineNumber: 34,
                         columnNumber: 9
                     },
                     __self: this,
@@ -26038,14 +26066,14 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Body, {
                 __source: {
                     fileName: "src/components/login view/login-view.js",
-                    lineNumber: 23,
+                    lineNumber: 36,
                     columnNumber: 7
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
                     __source: {
                         fileName: "src/components/login view/login-view.js",
-                        lineNumber: 24,
+                        lineNumber: 37,
                         columnNumber: 9
                     },
                     __self: this,
@@ -26054,7 +26082,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                             controlId: "formUsername",
                             __source: {
                                 fileName: "src/components/login view/login-view.js",
-                                lineNumber: 25,
+                                lineNumber: 38,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -26062,7 +26090,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                                 /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                                     __source: {
                                         fileName: "src/components/login view/login-view.js",
-                                        lineNumber: 26,
+                                        lineNumber: 39,
                                         columnNumber: 13
                                     },
                                     __self: this,
@@ -26074,7 +26102,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                                     ,
                                     __source: {
                                         fileName: "src/components/login view/login-view.js",
-                                        lineNumber: 27,
+                                        lineNumber: 40,
                                         columnNumber: 13
                                     },
                                     __self: this
@@ -26085,7 +26113,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                             controlId: "formPassword",
                             __source: {
                                 fileName: "src/components/login view/login-view.js",
-                                lineNumber: 32,
+                                lineNumber: 45,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -26093,7 +26121,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                                 /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                                     __source: {
                                         fileName: "src/components/login view/login-view.js",
-                                        lineNumber: 33,
+                                        lineNumber: 46,
                                         columnNumber: 13
                                     },
                                     __self: this,
@@ -26105,7 +26133,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                                     ,
                                     __source: {
                                         fileName: "src/components/login view/login-view.js",
-                                        lineNumber: 34,
+                                        lineNumber: 47,
                                         columnNumber: 13
                                     },
                                     __self: this
@@ -26119,7 +26147,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                             onClick: handleSubmit,
                             __source: {
                                 fileName: "src/components/login view/login-view.js",
-                                lineNumber: 40,
+                                lineNumber: 53,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -26133,7 +26161,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                             },
                             __source: {
                                 fileName: "src/components/login view/login-view.js",
-                                lineNumber: 48,
+                                lineNumber: 61,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -26159,7 +26187,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","prop-types":"2bysO","react-bootstrap/Form":"PeiIB","react-bootstrap/Button":"64Pgd","react-bootstrap":"9qMdX","./login-view.scss":"ltljo"}],"PeiIB":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","prop-types":"2bysO","react-bootstrap/Form":"PeiIB","react-bootstrap/Button":"64Pgd","react-bootstrap":"9qMdX","./login-view.scss":"ltljo","axios":"1IeuP"}],"PeiIB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
