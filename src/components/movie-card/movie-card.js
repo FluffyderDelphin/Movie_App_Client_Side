@@ -6,7 +6,7 @@ import './movie-card.scss';
 
 export class MovieCard extends React.Component {
   render() {
-    const { movie, onMovieClick } = this.props;
+    const { movie, onMovieClick, onLoggedOut } = this.props;
     return (
       <Card className="cardContainer">
         <Card.Img variant="top" src={movie.imageurl} />

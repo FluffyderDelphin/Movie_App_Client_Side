@@ -20,16 +20,13 @@ export class MainView extends React.Component {
     };
   }
   componentDidMount() {
-    axios
-      .get('https://alexandersmovieapp.herokuapp.com/movies')
-      .then((response) => {
-        this.setState({
-          movies: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
+    let accesToken = localStorage.getItem('token');
+    if (accesToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user'),
       });
+      this.getMovies(accesToken);
+    }
   }
 
   getMovies(token) {
@@ -39,7 +36,7 @@ export class MainView extends React.Component {
       })
       .then((response) => {
         this.setState({
-          movies: response.date,
+          movies: response.data,
         });
       })
       .catch(function (error) {
@@ -65,7 +62,14 @@ export class MainView extends React.Component {
 
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.username);
-    this.getMovies(authData.token);
+    // this.getMovies(authData.token);
+  }
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null,
+    });
   }
   render() {
     const { movies, selectedMovie, user, showRegisterView } = this.state;
@@ -121,6 +125,13 @@ export class MainView extends React.Component {
                 />
               </Col>
             ))}
+            <button
+              onClick={() => {
+                this.onLoggedOut();
+              }}
+            >
+              Logout
+            </button>
           </Row>
         )}
       </div>

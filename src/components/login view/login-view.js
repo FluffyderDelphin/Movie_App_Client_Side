@@ -10,6 +10,9 @@ export function LoginView({ onLoggedIn, onRegisterClick }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const [usernameErr, setUsernameErr] = useState('');
+  const [passwordErr, setPasswordErr] = useState('');
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(username, password);
