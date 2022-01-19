@@ -7,6 +7,7 @@ import { LoginView } from '../login view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegisterView } from '../registration-view/registration-view';
+import { Navbar } from '../navbar/navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './main-view.scss';
@@ -137,34 +138,36 @@ export class MainView extends React.Component {
       //     </Row>
       //   )}
       // </div>
-
-      <Router>
-        <Row className="main-view justify-content-md-center">
-          <Route
-            exact-path="/"
-            render={() => {
-              return movies.map((m) => (
-                <Col md={3} key={m._id}>
-                  <MovieCard movie={m} />
-                </Col>
-              ));
-            }}
-          />
-          <Route
-            path="/movies/:moviesId"
-            render={({ match, history }) => {
-              return (
-                <Col md={8}>
-                  <MovieCard
-                    movie={movies.find((m) => m._id === match.params.movieId)}
-                    onBackClick={(() => history, goBack())}
-                  />
-                </Col>
-              );
-            }}
-          />
-        </Row>
-      </Router>
+      <>
+        <Router>
+          <Row className="main-view justify-content-md-center">
+            <Route
+              exact-path="/"
+              render={() => {
+                return movies.map((m) => (
+                  <Col md={3} key={m._id}>
+                    <MovieCard movie={m} />
+                  </Col>
+                ));
+              }}
+            />
+            <Route
+              path="/movies/:moviesId"
+              render={({ match, history }) => {
+                return (
+                  <Col md={8}>
+                    <MovieCard
+                      movie={movies.find((m) => m._id === match.params.movieId)}
+                      onBackClick={(() => history, goBack())}
+                    />
+                  </Col>
+                );
+              }}
+            />
+          </Row>
+        </Router>
+        <Navbar />
+      </>
     );
   }
 }
