@@ -23079,74 +23079,62 @@ class MainView extends _reactDefault.default.Component {
         //     </Row>
         //   )}
         // </div>
-        /*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
-            children: [
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.BrowserRouter, {
-                    __source: {
-                        fileName: "src/components/main-view/main-view.js",
-                        lineNumber: 142,
-                        columnNumber: 9
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
-                        className: "main-view justify-content-md-center",
+        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.BrowserRouter, {
+            __source: {
+                fileName: "src/components/main-view/main-view.js",
+                lineNumber: 142,
+                columnNumber: 7
+            },
+            __self: this,
+            children: /*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
+                className: "main-view justify-content-md-center",
+                __source: {
+                    fileName: "src/components/main-view/main-view.js",
+                    lineNumber: 143,
+                    columnNumber: 9
+                },
+                __self: this,
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                        "exact-path": "/",
+                        render: ()=>{
+                            return movies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                    md: 3,
+                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                                        movie: m
+                                    })
+                                }, m._id)
+                            );
+                        },
                         __source: {
                             fileName: "src/components/main-view/main-view.js",
-                            lineNumber: 143,
+                            lineNumber: 144,
                             columnNumber: 11
                         },
-                        __self: this,
-                        children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                                "exact-path": "/",
-                                render: ()=>{
-                                    return movies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                                            md: 3,
-                                            children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                                                movie: m
-                                            })
-                                        }, m._id)
-                                    );
-                                },
-                                __source: {
-                                    fileName: "src/components/main-view/main-view.js",
-                                    lineNumber: 144,
-                                    columnNumber: 13
-                                },
-                                __self: this
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                                path: "/movies/:moviesId",
-                                render: ({ match , history  })=>{
-                                    return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                                        md: 8,
-                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                                            movie: movies.find((m)=>m._id === match.params.movieId
-                                            ),
-                                            onBackClick: (()=>history
-                                            , goBack())
-                                        })
-                                    }));
-                                },
-                                __source: {
-                                    fileName: "src/components/main-view/main-view.js",
-                                    lineNumber: 154,
-                                    columnNumber: 13
-                                },
-                                __self: this
-                            })
-                        ]
+                        __self: this
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                        path: "/movies/:moviesId",
+                        render: ({ match , history  })=>{
+                            return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                md: 8,
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
+                                    movie: movies.find((m)=>m._id === match.params.movieId
+                                    ),
+                                    onBackClick: (()=>history
+                                    , goBack())
+                                })
+                            }));
+                        },
+                        __source: {
+                            fileName: "src/components/main-view/main-view.js",
+                            lineNumber: 154,
+                            columnNumber: 11
+                        },
+                        __self: this
                     })
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_navbar.Navbar, {
-                    __source: {
-                        fileName: "src/components/main-view/main-view.js",
-                        lineNumber: 169,
-                        columnNumber: 9
-                    },
-                    __self: this
-                })
-            ]
+                ]
+            })
         }));
     }
 }

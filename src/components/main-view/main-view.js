@@ -138,36 +138,34 @@ export class MainView extends React.Component {
       //     </Row>
       //   )}
       // </div>
-      <>
-        <Router>
-          <Row className="main-view justify-content-md-center">
-            <Route
-              exact-path="/"
-              render={() => {
-                return movies.map((m) => (
-                  <Col md={3} key={m._id}>
-                    <MovieCard movie={m} />
-                  </Col>
-                ));
-              }}
-            />
-            <Route
-              path="/movies/:moviesId"
-              render={({ match, history }) => {
-                return (
-                  <Col md={8}>
-                    <MovieCard
-                      movie={movies.find((m) => m._id === match.params.movieId)}
-                      onBackClick={(() => history, goBack())}
-                    />
-                  </Col>
-                );
-              }}
-            />
-          </Row>
-        </Router>
-        <Navbar />
-      </>
+
+      <Router>
+        <Row className="main-view justify-content-md-center">
+          <Route
+            exact-path="/"
+            render={() => {
+              return movies.map((m) => (
+                <Col md={3} key={m._id}>
+                  <MovieCard movie={m} />
+                </Col>
+              ));
+            }}
+          />
+          <Route
+            path="/movies/:moviesId"
+            render={({ match, history }) => {
+              return (
+                <Col md={8}>
+                  <MovieView
+                    movie={movies.find((m) => m._id === match.params.movieId)}
+                    onBackClick={(() => history, goBack())}
+                  />
+                </Col>
+              );
+            }}
+          />
+        </Row>
+      </Router>
     );
   }
 }
