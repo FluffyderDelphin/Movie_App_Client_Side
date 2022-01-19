@@ -26046,11 +26046,30 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
     const [password, setPassword] = _react.useState('');
     const [usernameErr, setUsernameErr] = _react.useState('');
     const [passwordErr, setPasswordErr] = _react.useState('');
+    const validate = ()=>{
+        let isReq = true;
+        if (!username) {
+            setUsernameErr('Username Required');
+            isReq = false;
+        } else if (username.length < 2) {
+            setUsernameErr('Username must be 2 characters long');
+            isReq = false;
+        }
+        if (!password) {
+            setPasswordErr('Password is Required');
+            isReq = false;
+        } else if (password.length < 1) {
+            setPassword('Password must be 6 characters long');
+            isReq = false;
+        }
+        return isReq;
+    };
     const handleSubmit = (e)=>{
         e.preventDefault();
+        const isReq = validate();
         // console.log(username, password);
         // onLoggedIn(username);
-        _axiosDefault.default.post('https://alexandersmovieapp.herokuapp.com/login', {
+        if (isReq) _axiosDefault.default.post('https://alexandersmovieapp.herokuapp.com/login', {
             username: username,
             password: password
         }).then((response)=>{
@@ -26058,12 +26077,13 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
             onLoggedIn(data);
         }).catch((e)=>{
             console.log(`User with the Name ${username} not found`);
+            console.log(password);
         });
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
         __source: {
             fileName: "src/components/login view/login-view.js",
-            lineNumber: 35,
+            lineNumber: 57,
             columnNumber: 5
         },
         __self: this,
@@ -26071,7 +26091,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Header, {
                 __source: {
                     fileName: "src/components/login view/login-view.js",
-                    lineNumber: 36,
+                    lineNumber: 58,
                     columnNumber: 7
                 },
                 __self: this,
@@ -26079,7 +26099,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                     className: "loginTitle",
                     __source: {
                         fileName: "src/components/login view/login-view.js",
-                        lineNumber: 37,
+                        lineNumber: 59,
                         columnNumber: 9
                     },
                     __self: this,
@@ -26089,14 +26109,14 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Body, {
                 __source: {
                     fileName: "src/components/login view/login-view.js",
-                    lineNumber: 39,
+                    lineNumber: 61,
                     columnNumber: 7
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
                     __source: {
                         fileName: "src/components/login view/login-view.js",
-                        lineNumber: 40,
+                        lineNumber: 62,
                         columnNumber: 9
                     },
                     __self: this,
@@ -26105,7 +26125,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                             controlId: "formUsername",
                             __source: {
                                 fileName: "src/components/login view/login-view.js",
-                                lineNumber: 41,
+                                lineNumber: 63,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -26113,7 +26133,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                                 /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                                     __source: {
                                         fileName: "src/components/login view/login-view.js",
-                                        lineNumber: 42,
+                                        lineNumber: 64,
                                         columnNumber: 13
                                     },
                                     __self: this,
@@ -26125,10 +26145,20 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                                     ,
                                     __source: {
                                         fileName: "src/components/login view/login-view.js",
-                                        lineNumber: 43,
+                                        lineNumber: 65,
                                         columnNumber: 13
                                     },
                                     __self: this
+                                }),
+                                usernameErr && /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                                    className: "valClass",
+                                    __source: {
+                                        fileName: "src/components/login view/login-view.js",
+                                        lineNumber: 69,
+                                        columnNumber: 29
+                                    },
+                                    __self: this,
+                                    children: usernameErr
                                 })
                             ]
                         }),
@@ -26136,7 +26166,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                             controlId: "formPassword",
                             __source: {
                                 fileName: "src/components/login view/login-view.js",
-                                lineNumber: 48,
+                                lineNumber: 71,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -26144,7 +26174,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                                 /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                                     __source: {
                                         fileName: "src/components/login view/login-view.js",
-                                        lineNumber: 49,
+                                        lineNumber: 72,
                                         columnNumber: 13
                                     },
                                     __self: this,
@@ -26156,10 +26186,20 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                                     ,
                                     __source: {
                                         fileName: "src/components/login view/login-view.js",
-                                        lineNumber: 50,
+                                        lineNumber: 73,
                                         columnNumber: 13
                                     },
                                     __self: this
+                                }),
+                                passwordErr && /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                                    className: "valClass",
+                                    __source: {
+                                        fileName: "src/components/login view/login-view.js",
+                                        lineNumber: 77,
+                                        columnNumber: 29
+                                    },
+                                    __self: this,
+                                    children: passwordErr
                                 })
                             ]
                         }),
@@ -26170,7 +26210,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                             onClick: handleSubmit,
                             __source: {
                                 fileName: "src/components/login view/login-view.js",
-                                lineNumber: 56,
+                                lineNumber: 80,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -26184,7 +26224,7 @@ function LoginView({ onLoggedIn , onRegisterClick  }) {
                             },
                             __source: {
                                 fileName: "src/components/login view/login-view.js",
-                                lineNumber: 64,
+                                lineNumber: 88,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -37613,6 +37653,8 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _reactBootstrap = require("react-bootstrap");
 var _registrationViewScss = require("./registration-view.scss");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _s = $RefreshSig$();
 function RegisterView({ closeRegisterView  }) {
     _s();
@@ -37620,15 +37662,60 @@ function RegisterView({ closeRegisterView  }) {
     const [password, setPassword] = _react.useState('');
     const [birthday, setBirthday] = _react.useState('');
     const [email, setEmail] = _react.useState('');
+    const [usernameErr, setUsernameErr] = _react.useState('');
+    const [passwordErr, setPasswordErr] = _react.useState('');
+    const [emailErrr, setEmailErr] = _react.useState('');
+    const validate = ()=>{
+        let isReq = true;
+        if (!username) {
+            setUsernameErr('Username Required');
+            isReq = false;
+        } else if (username.length < 5) {
+            setUsernameErr('Username not valid');
+            isReq = false;
+        }
+        if (!password) {
+            setPasswordErr('Password is Required');
+            isReq = false;
+        } else if (password.length < 8) {
+            setPasswordErr('Password not valid');
+            isReq = false;
+        }
+        if (!email) {
+            setEmailErr('Email is required');
+            isReq = false;
+        } else if (email.indexOf('@') === -1) {
+            setEmailErr('Email is not valid');
+            isReq = false;
+        }
+        return isReq;
+    };
     const handleRegistration = (e)=>{
         e.preventDefault();
-        console.log('User has been registred');
-        closeRegisterView(false);
+        const isReq = validate();
+        if (isReq) {
+            _axiosDefault.default.post('https://alexandersmovieapp.herokuapp.com/users', {
+                username: username,
+                password: password,
+                email: email,
+                birthday: birthday
+            }).then((response)=>{
+                const data = response.data;
+                console.log(data);
+                alert('Registration successful, please login ! ');
+                window.open('/', '_self');
+            // closeRegisterView(false);
+            }).catch((response)=>{
+                console.error(response);
+                alert('unable to register');
+            });
+            console.log('User has been registred');
+        }
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
         __source: {
             fileName: "src/components/registration-view/registration-view.js",
-            lineNumber: 21,
+            lineNumber: 75,
             columnNumber: 5
         },
         __self: this,
@@ -37636,7 +37723,7 @@ function RegisterView({ closeRegisterView  }) {
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Header, {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.js",
-                    lineNumber: 22,
+                    lineNumber: 76,
                     columnNumber: 7
                 },
                 __self: this,
@@ -37644,7 +37731,7 @@ function RegisterView({ closeRegisterView  }) {
                     className: "registerTitle",
                     __source: {
                         fileName: "src/components/registration-view/registration-view.js",
-                        lineNumber: 23,
+                        lineNumber: 77,
                         columnNumber: 9
                     },
                     __self: this,
@@ -37654,14 +37741,14 @@ function RegisterView({ closeRegisterView  }) {
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Body, {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.js",
-                    lineNumber: 25,
+                    lineNumber: 79,
                     columnNumber: 7
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
                     __source: {
                         fileName: "src/components/registration-view/registration-view.js",
-                        lineNumber: 26,
+                        lineNumber: 80,
                         columnNumber: 9
                     },
                     __self: this,
@@ -37670,7 +37757,7 @@ function RegisterView({ closeRegisterView  }) {
                             controlId: "formUsername",
                             __source: {
                                 fileName: "src/components/registration-view/registration-view.js",
-                                lineNumber: 27,
+                                lineNumber: 81,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -37678,7 +37765,7 @@ function RegisterView({ closeRegisterView  }) {
                                 /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                                     __source: {
                                         fileName: "src/components/registration-view/registration-view.js",
-                                        lineNumber: 28,
+                                        lineNumber: 82,
                                         columnNumber: 13
                                     },
                                     __self: this,
@@ -37691,10 +37778,20 @@ function RegisterView({ closeRegisterView  }) {
                                     ,
                                     __source: {
                                         fileName: "src/components/registration-view/registration-view.js",
-                                        lineNumber: 29,
+                                        lineNumber: 83,
                                         columnNumber: 13
                                     },
                                     __self: this
+                                }),
+                                usernameErr && /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                                    className: "valClass",
+                                    __source: {
+                                        fileName: "src/components/registration-view/registration-view.js",
+                                        lineNumber: 88,
+                                        columnNumber: 29
+                                    },
+                                    __self: this,
+                                    children: usernameErr
                                 })
                             ]
                         }),
@@ -37702,7 +37799,7 @@ function RegisterView({ closeRegisterView  }) {
                             controlId: "formPassword",
                             __source: {
                                 fileName: "src/components/registration-view/registration-view.js",
-                                lineNumber: 35,
+                                lineNumber: 90,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -37710,7 +37807,7 @@ function RegisterView({ closeRegisterView  }) {
                                 /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                                     __source: {
                                         fileName: "src/components/registration-view/registration-view.js",
-                                        lineNumber: 36,
+                                        lineNumber: 91,
                                         columnNumber: 13
                                     },
                                     __self: this,
@@ -37723,10 +37820,20 @@ function RegisterView({ closeRegisterView  }) {
                                     ,
                                     __source: {
                                         fileName: "src/components/registration-view/registration-view.js",
-                                        lineNumber: 37,
+                                        lineNumber: 92,
                                         columnNumber: 13
                                     },
                                     __self: this
+                                }),
+                                passwordErr && /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                                    className: "valClass",
+                                    __source: {
+                                        fileName: "src/components/registration-view/registration-view.js",
+                                        lineNumber: 97,
+                                        columnNumber: 29
+                                    },
+                                    __self: this,
+                                    children: passwordErr
                                 })
                             ]
                         }),
@@ -37734,7 +37841,7 @@ function RegisterView({ closeRegisterView  }) {
                             controlId: "formEmail",
                             __source: {
                                 fileName: "src/components/registration-view/registration-view.js",
-                                lineNumber: 43,
+                                lineNumber: 99,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -37742,7 +37849,7 @@ function RegisterView({ closeRegisterView  }) {
                                 /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                                     __source: {
                                         fileName: "src/components/registration-view/registration-view.js",
-                                        lineNumber: 44,
+                                        lineNumber: 100,
                                         columnNumber: 13
                                     },
                                     __self: this,
@@ -37755,10 +37862,20 @@ function RegisterView({ closeRegisterView  }) {
                                     ,
                                     __source: {
                                         fileName: "src/components/registration-view/registration-view.js",
-                                        lineNumber: 45,
+                                        lineNumber: 101,
                                         columnNumber: 13
                                     },
                                     __self: this
+                                }),
+                                emailErrr && /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                                    className: "valClass",
+                                    __source: {
+                                        fileName: "src/components/registration-view/registration-view.js",
+                                        lineNumber: 106,
+                                        columnNumber: 27
+                                    },
+                                    __self: this,
+                                    children: emailErrr
                                 })
                             ]
                         }),
@@ -37766,7 +37883,7 @@ function RegisterView({ closeRegisterView  }) {
                             controlId: "formBirthday",
                             __source: {
                                 fileName: "src/components/registration-view/registration-view.js",
-                                lineNumber: 51,
+                                lineNumber: 108,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -37774,7 +37891,7 @@ function RegisterView({ closeRegisterView  }) {
                                 /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                                     __source: {
                                         fileName: "src/components/registration-view/registration-view.js",
-                                        lineNumber: 52,
+                                        lineNumber: 109,
                                         columnNumber: 13
                                     },
                                     __self: this,
@@ -37787,7 +37904,7 @@ function RegisterView({ closeRegisterView  }) {
                                     ,
                                     __source: {
                                         fileName: "src/components/registration-view/registration-view.js",
-                                        lineNumber: 53,
+                                        lineNumber: 110,
                                         columnNumber: 13
                                     },
                                     __self: this
@@ -37800,7 +37917,7 @@ function RegisterView({ closeRegisterView  }) {
                             className: "regButtons",
                             __source: {
                                 fileName: "src/components/registration-view/registration-view.js",
-                                lineNumber: 60,
+                                lineNumber: 117,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -37812,7 +37929,7 @@ function RegisterView({ closeRegisterView  }) {
         ]
     }));
 }
-_s(RegisterView, "MWj3HdQRSj+7T3fdvwpRB3t7hec=");
+_s(RegisterView, "dqY+wJG/KshMmYgPPeYUYcey0wc=");
 _c = RegisterView;
 RegisterView.propType = {
     closeRegisterView: _propTypesDefault.default.func.isRequired
@@ -37825,6 +37942,6 @@ $RefreshReg$(_c, "RegisterView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","prop-types":"2bysO","react-bootstrap/Form":"PeiIB","react-bootstrap/Button":"64Pgd","react-bootstrap":"9qMdX","./registration-view.scss":"74YgT"}],"74YgT":[function() {},{}],"hRkrD":[function() {},{}]},["emU3S","lBB98","hD4hw"], "hD4hw", "parcelRequirecdd9")
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","prop-types":"2bysO","react-bootstrap/Form":"PeiIB","react-bootstrap/Button":"64Pgd","react-bootstrap":"9qMdX","./registration-view.scss":"74YgT","axios":"1IeuP"}],"74YgT":[function() {},{}],"hRkrD":[function() {},{}]},["emU3S","lBB98","hD4hw"], "hD4hw", "parcelRequirecdd9")
 
 //# sourceMappingURL=index.379dd93c.js.map
