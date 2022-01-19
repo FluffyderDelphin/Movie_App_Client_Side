@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import { LoginView } from '../login view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
@@ -14,7 +16,7 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
+      // selectedMovie: null,
       user: null,
       showRegisterView: false,
     };
@@ -72,7 +74,7 @@ export class MainView extends React.Component {
     });
   }
   render() {
-    const { movies, selectedMovie, user, showRegisterView } = this.state;
+    const { movies, user, showRegisterView } = this.state;
     if (showRegisterView)
       return (
         <Row className="justify-content-md-center">
@@ -101,40 +103,68 @@ export class MainView extends React.Component {
     if (movies.length === 0) return <div className="main-view" />;
 
     return (
-      <div className="main-view">
-        {selectedMovie ? (
-          <Row className="justify-content-md-center">
-            <Col md={8}>
-              <MovieView
-                movie={selectedMovie}
-                onBackClick={(newSelectedMovie) => {
-                  this.setSelectedMovie(newSelectedMovie);
-                }}
-              />
-            </Col>
-          </Row>
-        ) : (
-          <Row className="justify-content-md-center">
-            {movies.map((movie) => (
-              <Col lg={3} md={6} sm={12} key={movie._id} className="col-card">
-                <MovieCard
-                  movie={movie}
-                  onMovieClick={(movie) => {
-                    this.setSelectedMovie(movie);
-                  }}
-                />
-              </Col>
-            ))}
-            <button
-              onClick={() => {
-                this.onLoggedOut();
-              }}
-            >
-              Logout
-            </button>
-          </Row>
-        )}
-      </div>
+      // <div className="main-view">
+      //   {selectedMovie ? (
+      //     <Row className="justify-content-md-center">
+      //       <Col md={8}>
+      //         <MovieView
+      //           movie={selectedMovie}
+      //           onBackClick={(newSelectedMovie) => {
+      //             this.setSelectedMovie(newSelectedMovie);
+      //           }}
+      //         />
+      //       </Col>
+      //     </Row>
+      //   ) : (
+      //     <Row className="justify-content-md-center">
+      //       {movies.map((movie) => (
+      //         <Col lg={3} md={6} sm={12} key={movie._id} className="col-card">
+      //           <MovieCard
+      //             movie={movie}
+      //             onMovieClick={(movie) => {
+      //               this.setSelectedMovie(movie);
+      //             }}
+      //           />
+      //         </Col>
+      //       ))}
+      //       <button
+      //         onClick={() => {
+      //           this.onLoggedOut();
+      //         }}
+      //       >
+      //         Logout
+      //       </button>
+      //     </Row>
+      //   )}
+      // </div>
+
+      <Router>
+        <Row className="main-view justify-content-md-center">
+          <Route
+            exact-path="/"
+            render={() => {
+              return movies.map((m) => (
+                <Col md={3} key={m._id}>
+                  <MovieCard movie={m} />
+                </Col>
+              ));
+            }}
+          />
+          <Route
+            path="/movies/:moviesId"
+            render={({ match, history }) => {
+              return (
+                <Col md={8}>
+                  <MovieCard
+                    movie={movies.find((m) => m._id === match.params.movieId)}
+                    onBackClick={(() => history, goBack())}
+                  />
+                </Col>
+              );
+            }}
+          />
+        </Row>
+      </Router>
     );
   }
 }

@@ -4,22 +4,22 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './movie-card.scss';
 
+import { Link } from 'react-router-dom';
+
 export class MovieCard extends React.Component {
   render() {
-    const { movie, onMovieClick, onLoggedOut } = this.props;
+    const { movie } = this.props;
     return (
       <Card className="cardContainer">
         <Card.Img variant="top" src={movie.imageurl} />
         <Card.Body className="cardBody">
           <Card.Title>{movie.title}</Card.Title>
           <Card.Text>{movie.description}</Card.Text>
-          <Button
-            onClick={() => onMovieClick(movie)}
-            variant="link"
-            className="cardBtn"
-          >
-            Open
-          </Button>
+          <Link to={`/movies/${movie._id}`}>
+            <Button variant="link" className="cardBtn">
+              Open
+            </Button>
+          </Link>
         </Card.Body>
       </Card>
     );
@@ -32,5 +32,4 @@ MovieCard.propTypes = {
     description: PropTypes.string.isRequired,
     imageurl: PropTypes.string.isRequired,
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
 };
