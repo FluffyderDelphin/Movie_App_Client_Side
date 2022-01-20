@@ -138,9 +138,8 @@ export class MainView extends React.Component {
       //     </Row>
       //   )}
       // </div>
-
-      <Router>
-        <Row className="main-view justify-content-md-center">
+      <Row className="main-view justify-content-md-center">
+        <Router>
           <Route
             exact-path="/"
             render={() => {
@@ -164,8 +163,8 @@ export class MainView extends React.Component {
               );
             }}
           />
-        </Row>
-      </Router>
+        </Router>
+      </Row>
     );
   }
 }
