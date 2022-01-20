@@ -39686,18 +39686,82 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _navbarScss = require("./navbar.scss");
-function Navbar({}) {
+function Navbar({ onLoggedOut  }) {
+    if (localStorage.getItem('token') === null) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar, {
+        __source: {
+            fileName: "src/components/navbar/navbar.js",
+            lineNumber: 9,
+            columnNumber: 7
+        },
+        __self: this,
+        children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
+            __source: {
+                fileName: "src/components/navbar/navbar.js",
+                lineNumber: 10,
+                columnNumber: 9
+            },
+            __self: this,
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Brand, {
+                    __source: {
+                        fileName: "src/components/navbar/navbar.js",
+                        lineNumber: 11,
+                        columnNumber: 11
+                    },
+                    __self: this,
+                    children: "MovieApp"
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Collapse, {
+                    id: "basic-navbar-nav",
+                    __source: {
+                        fileName: "src/components/navbar/navbar.js",
+                        lineNumber: 12,
+                        columnNumber: 11
+                    },
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
+                        __source: {
+                            fileName: "src/components/navbar/navbar.js",
+                            lineNumber: 13,
+                            columnNumber: 13
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                __source: {
+                                    fileName: "src/components/navbar/navbar.js",
+                                    lineNumber: 14,
+                                    columnNumber: 15
+                                },
+                                __self: this,
+                                children: "Sign Up"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                __source: {
+                                    fileName: "src/components/navbar/navbar.js",
+                                    lineNumber: 15,
+                                    columnNumber: 15
+                                },
+                                __self: this,
+                                children: "Register"
+                            })
+                        ]
+                    })
+                })
+            ]
+        })
+    }));
     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar, {
         __source: {
             fileName: "src/components/navbar/navbar.js",
-            lineNumber: 8,
+            lineNumber: 23,
             columnNumber: 5
         },
         __self: this,
         children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/navbar/navbar.js",
-                lineNumber: 9,
+                lineNumber: 24,
                 columnNumber: 7
             },
             __self: this,
@@ -39705,7 +39769,7 @@ function Navbar({}) {
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Brand, {
                     __source: {
                         fileName: "src/components/navbar/navbar.js",
-                        lineNumber: 10,
+                        lineNumber: 25,
                         columnNumber: 9
                     },
                     __self: this,
@@ -39715,14 +39779,14 @@ function Navbar({}) {
                     id: "basic-navbar-nav",
                     __source: {
                         fileName: "src/components/navbar/navbar.js",
-                        lineNumber: 11,
+                        lineNumber: 26,
                         columnNumber: 9
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
                         __source: {
                             fileName: "src/components/navbar/navbar.js",
-                            lineNumber: 12,
+                            lineNumber: 27,
                             columnNumber: 11
                         },
                         __self: this,
@@ -39730,16 +39794,7 @@ function Navbar({}) {
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                 __source: {
                                     fileName: "src/components/navbar/navbar.js",
-                                    lineNumber: 13,
-                                    columnNumber: 13
-                                },
-                                __self: this,
-                                children: "Sign Up"
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                __source: {
-                                    fileName: "src/components/navbar/navbar.js",
-                                    lineNumber: 14,
+                                    lineNumber: 28,
                                     columnNumber: 13
                                 },
                                 __self: this,
@@ -39748,25 +39803,19 @@ function Navbar({}) {
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                 __source: {
                                     fileName: "src/components/navbar/navbar.js",
-                                    lineNumber: 15,
-                                    columnNumber: 13
-                                },
-                                __self: this,
-                                children: "Register"
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                __source: {
-                                    fileName: "src/components/navbar/navbar.js",
-                                    lineNumber: 16,
+                                    lineNumber: 29,
                                     columnNumber: 13
                                 },
                                 __self: this,
                                 children: "Profile"
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                onClick: ()=>{
+                                    this.onLoggedOut();
+                                },
                                 __source: {
                                     fileName: "src/components/navbar/navbar.js",
-                                    lineNumber: 17,
+                                    lineNumber: 30,
                                     columnNumber: 13
                                 },
                                 __self: this,
