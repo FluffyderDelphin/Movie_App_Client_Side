@@ -138,6 +138,7 @@ export class MainView extends React.Component {
       //     </Row>
       //   )}
       // </div>
+
       <Row className="main-view justify-content-md-center">
         <Router>
           <Route
@@ -150,6 +151,7 @@ export class MainView extends React.Component {
               ));
             }}
           />
+
           <Route
             path="/movies/:moviesId"
             render={({ match, history }) => {

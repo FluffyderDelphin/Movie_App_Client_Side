@@ -23083,14 +23083,14 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view justify-content-md-center",
             __source: {
                 fileName: "src/components/main-view/main-view.js",
-                lineNumber: 141,
+                lineNumber: 142,
                 columnNumber: 7
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
                 __source: {
                     fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 142,
+                    lineNumber: 143,
                     columnNumber: 9
                 },
                 __self: this,
@@ -23108,7 +23108,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.js",
-                            lineNumber: 143,
+                            lineNumber: 144,
                             columnNumber: 11
                         },
                         __self: this
@@ -23128,7 +23128,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.js",
-                            lineNumber: 153,
+                            lineNumber: 155,
                             columnNumber: 11
                         },
                         __self: this
