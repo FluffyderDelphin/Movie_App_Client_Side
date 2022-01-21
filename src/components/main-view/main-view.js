@@ -17,7 +17,7 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: [],
-      // selectedMovie: null,
+      selectedMovie: null,
       user: null,
       showRegisterView: false,
     };
@@ -138,11 +138,12 @@ export class MainView extends React.Component {
       //     </Row>
       //   )}
       // </div>
-
       <Row className="main-view justify-content-md-center">
+        <Navbar />
         <Router>
           <Route
-            exact-path="/"
+            exact
+            path="/"
             render={() => {
               return movies.map((m) => (
                 <Col md={3} key={m._id}>
@@ -153,13 +154,13 @@ export class MainView extends React.Component {
           />
 
           <Route
-            path="/movies/:moviesId"
+            path="/movies/:movieId"
             render={({ match, history }) => {
               return (
                 <Col md={8}>
                   <MovieView
                     movie={movies.find((m) => m._id === match.params.movieId)}
-                    onBackClick={(() => history, goBack())}
+                    onBackClick={() => history.goBack()}
                   />
                 </Col>
               );

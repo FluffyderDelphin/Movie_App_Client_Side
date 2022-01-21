@@ -20,7 +20,7 @@ export function Navbar({ onLoggedOut }) {
     );
 
   return (
-    <Navbar>
+    <Navbar bg="light" expand="lg" fixed="top" className="navbar">
       <Container>
         <Navbar.Brand>MovieApp</Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">

@@ -7,7 +7,7 @@ import './movie-view.scss';
 import { Link } from 'react-router-dom';
 export class MovieView extends React.Component {
   render() {
-    const { movie, onebackClick } = this.props;
+    const { movie, onBackClick } = this.props;
 
     return (
       <Card>
@@ -31,13 +31,13 @@ export class MovieView extends React.Component {
           Back
         </Button>
 
-        <Link to={`/directors/${movie.Director.Name}`}>
+        {/* <Link to={`/directors/${movie.Director.Name}`}>
           <Button variant="link">Director</Button>
         </Link>
 
         <Link to={`/genres/${movie.Genre.Name}`}>
           <Button variant="link">Genre</Button>
-        </Link>
+        </Link> */}
       </Card>
     );
   }

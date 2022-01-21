@@ -1,9 +1,23 @@
-* {
-  font-size: 18px;
+.loginTitle {
+  text-align: center;
 }
 
-.movie-app {
-  color: steelblue;
+.btn.loginButtons {
+  background-color: #ffa915;
+  border-color: #ffa915;
+  margin: 10px;
+}
+
+.btn.loginButtons:hover,
+.btn.loginButtons:focus,
+.btn.loginButtons:active {
+  background-color: #e18e00;
+  border-color: #e18e00;
+}
+
+.valClass {
+  font-size: 15px;
+  color: #ce3c3c;
 }
 .cardContainer {
   height: 100%;
@@ -52,27 +66,6 @@
   position: relative;
   padding-bottom: 70px;
 }
-.loginTitle {
-  text-align: center;
-}
-
-.btn.loginButtons {
-  background-color: #ffa915;
-  border-color: #ffa915;
-  margin: 10px;
-}
-
-.btn.loginButtons:hover,
-.btn.loginButtons:focus,
-.btn.loginButtons:active {
-  background-color: #e18e00;
-  border-color: #e18e00;
-}
-
-.valClass {
-  font-size: 15px;
-  color: #ce3c3c;
-}
 .registerTitle {
   text-align: center;
 }
@@ -89,8 +82,15 @@
   background-color: #e18e00;
   border-color: #e18e00;
 }
+
 .col-card {
   margin-bottom: 20px;
 }
+* {
+  font-size: 18px;
+}
 
-/*# sourceMappingURL=index.1f6edfee.css.map */
+.movie-app {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.e04a3c59.css.map */
