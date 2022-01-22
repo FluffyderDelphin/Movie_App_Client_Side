@@ -20,45 +20,6 @@ export function Navbar({ user }) {
     }
   };
 
-  // if (localStorage.getItem('token') === null)
-  //   return (
-  //     <Navbar>
-  //       <Container>
-  //         <Navbar.Brand>MovieApp</Navbar.Brand>
-  //         <Navbar.Collapse id="basic-navbar-nav">
-  //           <Nav>
-  //             <Nav.Link>Sign Up</Nav.Link>
-  //             <Nav.Link>Register</Nav.Link>
-  //           </Nav>
-  //         </Navbar.Collapse>
-  //       </Container>
-  //     </Navbar>
-  //   );
-
-  // return (
-  //   <Navbar bg="light" expand="lg" fixed="top" className="navbar">
-  //     <Container>
-  //       <Navbar.Brand>MovieApp</Navbar.Brand>
-  //       <Navbar.Collapse id="basic-navbar-nav">
-  //         <Nav>
-  //           <Nav.Link>Home</Nav.Link>
-  //           <Nav.Link>Profile</Nav.Link>
-  //           <Nav.Link>
-  //             <button
-  //               onClick={() => {
-  //                 onLoggedOut();
-  //               }}
-  //             >
-  //               {' '}
-  //               Sign Out
-  //             </button>
-  //           </Nav.Link>
-  //         </Nav>
-  //       </Navbar.Collapse>
-  //     </Container>
-  //   </Navbar>
-  // );
-
   return (
     <Navbar
       className="main-nav"
@@ -75,7 +36,7 @@ export function Navbar({ user }) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            {isAuth() && <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>}
+            {isAuth() && <Nav.Link href={`/user/${user}`}>{user}</Nav.Link>}
             {isAuth() && (
               <Button
                 variant="link"

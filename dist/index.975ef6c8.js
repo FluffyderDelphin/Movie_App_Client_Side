@@ -34175,43 +34175,6 @@ function Navbar({ user  }) {
         if (localStorage.getItem('token')) return localStorage.getItem('token');
         else return false;
     };
-    // if (localStorage.getItem('token') === null)
-    //   return (
-    //     <Navbar>
-    //       <Container>
-    //         <Navbar.Brand>MovieApp</Navbar.Brand>
-    //         <Navbar.Collapse id="basic-navbar-nav">
-    //           <Nav>
-    //             <Nav.Link>Sign Up</Nav.Link>
-    //             <Nav.Link>Register</Nav.Link>
-    //           </Nav>
-    //         </Navbar.Collapse>
-    //       </Container>
-    //     </Navbar>
-    //   );
-    // return (
-    //   <Navbar bg="light" expand="lg" fixed="top" className="navbar">
-    //     <Container>
-    //       <Navbar.Brand>MovieApp</Navbar.Brand>
-    //       <Navbar.Collapse id="basic-navbar-nav">
-    //         <Nav>
-    //           <Nav.Link>Home</Nav.Link>
-    //           <Nav.Link>Profile</Nav.Link>
-    //           <Nav.Link>
-    //             <button
-    //               onClick={() => {
-    //                 onLoggedOut();
-    //               }}
-    //             >
-    //               {' '}
-    //               Sign Out
-    //             </button>
-    //           </Nav.Link>
-    //         </Nav>
-    //       </Navbar.Collapse>
-    //     </Container>
-    //   </Navbar>
-    // );
     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar, {
         className: "main-nav",
         sticky: "top",
@@ -34229,14 +34192,14 @@ function Navbar({ user  }) {
                     ]
                 }, void 0, true, {
                     fileName: "src/components/navbar/navbar.js",
-                    lineNumber: 71,
+                    lineNumber: 32,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Toggle, {
                     "aria-controls": "responsive-navbar-nav"
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.js",
-                    lineNumber: 75,
+                    lineNumber: 36,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Collapse, {
@@ -34245,11 +34208,11 @@ function Navbar({ user  }) {
                         className: "ml-auto",
                         children: [
                             isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
-                                href: `/users/${user}`,
+                                href: `/user/${user}`,
                                 children: user
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.js",
-                                lineNumber: 78,
+                                lineNumber: 39,
                                 columnNumber: 26
                             }, this),
                             isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -34260,7 +34223,7 @@ function Navbar({ user  }) {
                                 children: "Logout"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.js",
-                                lineNumber: 80,
+                                lineNumber: 41,
                                 columnNumber: 15
                             }, this),
                             !isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
@@ -34268,7 +34231,7 @@ function Navbar({ user  }) {
                                 children: "Sign-in"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.js",
-                                lineNumber: 89,
+                                lineNumber: 50,
                                 columnNumber: 27
                             }, this),
                             !isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
@@ -34276,29 +34239,29 @@ function Navbar({ user  }) {
                                 children: "Sign-up"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.js",
-                                lineNumber: 90,
+                                lineNumber: 51,
                                 columnNumber: 27
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/navbar/navbar.js",
-                        lineNumber: 77,
+                        lineNumber: 38,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.js",
-                    lineNumber: 76,
+                    lineNumber: 37,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/navbar/navbar.js",
-            lineNumber: 70,
+            lineNumber: 31,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/components/navbar/navbar.js",
-        lineNumber: 63,
+        lineNumber: 24,
         columnNumber: 5
     }, this));
 }
