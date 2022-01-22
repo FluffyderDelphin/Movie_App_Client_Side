@@ -34366,32 +34366,44 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _profileViewScss = require("./profile-view.scss");
-function ProfileView({ onBackClick  }) {
-    const userData = Json.parse(localStorage.getItem('user'));
+function ProfileView({ onBackClick , user  }) {
     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
-        children: [
-            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
-                children: " test test test"
-            }, void 0, false, {
-                fileName: "src/components/profile-view/profile-view.js",
-                lineNumber: 10,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                onClick: ()=>{
-                    onBackClick();
-                },
-                className: "cardBtn",
-                children: "Back"
-            }, void 0, false, {
-                fileName: "src/components/profile-view/profile-view.js",
-                lineNumber: 12,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
+        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
+            children: [
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
+                    children: "test test test"
+                }, void 0, false, {
+                    fileName: "src/components/profile-view/profile-view.js",
+                    lineNumber: 10,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Text, {
+                    children: "Lorem Ipsum"
+                }, void 0, false, {
+                    fileName: "src/components/profile-view/profile-view.js",
+                    lineNumber: 11,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                    onClick: ()=>{
+                        onBackClick();
+                    },
+                    className: "cardBtn",
+                    children: "Back"
+                }, void 0, false, {
+                    fileName: "src/components/profile-view/profile-view.js",
+                    lineNumber: 12,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/profile-view/profile-view.js",
+            lineNumber: 9,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
         fileName: "src/components/profile-view/profile-view.js",
-        lineNumber: 9,
+        lineNumber: 8,
         columnNumber: 5
     }, this));
 }

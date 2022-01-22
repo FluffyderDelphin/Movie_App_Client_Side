@@ -3,20 +3,21 @@ import { Card, Button } from 'react-bootstrap';
 import './profile-view.scss';
 import { useState } from 'react';
 
-export function ProfileView({ onBackClick }) {
-  const userData = Json.parse(localStorage.getItem('user'));
+export function ProfileView({ onBackClick, user }) {
   return (
     <Card>
-      <Card.Body> test test test</Card.Body>
-
-      <Button
-        onClick={() => {
-          onBackClick();
-        }}
-        className="cardBtn"
-      >
-        Back
-      </Button>
+      <Card.Body>
+        <Card.Title>test test test</Card.Title>
+        <Card.Text>Lorem Ipsum</Card.Text>
+        <Button
+          onClick={() => {
+            onBackClick();
+          }}
+          className="cardBtn"
+        >
+          Back
+        </Button>
+      </Card.Body>
     </Card>
   );
 }
