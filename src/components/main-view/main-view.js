@@ -19,7 +19,7 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: [],
-      user: '',
+      user: null,
     };
   }
   componentDidMount() {
@@ -81,7 +81,7 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-        <Navbar user={user.username} />
+        <Navbar user={user ? user.username : null} />
         <Container>
           <Row className="main-view justify-content-md-center">
             <Route
@@ -141,36 +141,37 @@ export class MainView extends React.Component {
                 );
               }}
             />
+
+            <Route
+              path={`/user/${user ? user.username : null}`}
+              render={({ match, history }) => {
+                if (!user) return <Redirect to="/" />;
+                return (
+                  <Col>
+                    <ProfileView
+                      movies={movies}
+                      user={user}
+                      onBackClick={() => history.goBack()}
+                    />
+                  </Col>
+                );
+              }}
+            />
+            <Route
+              path={`/user-update/${user ? user.username : null}`}
+              render={({ match, history }) => {
+                if (!user) return <Redirect to="/" />;
+                return (
+                  <Col>
+                    <UserUpdate
+                      user={user}
+                      onBackClick={() => histroy.goBack()}
+                    />
+                  </Col>
+                );
+              }}
+            />
           </Row>
-          <Route
-            path={`/user/${user}`}
-            render={({ match, history }) => {
-              if (!user) return <Redirect to="/" />;
-              return (
-                <Col>
-                  <ProfileView
-                    movies={movies}
-                    user={user}
-                    onBackClick={() => history.goBack()}
-                  />
-                </Col>
-              );
-            }}
-          />
-          <Route
-            path={`/user-update/${user}`}
-            render={({ match, history }) => {
-              if (!user) return <Redirect to="/" />;
-              return (
-                <Col>
-                  <UserUpdate
-                    user={user}
-                    onBackClick={() => histroy.goBack()}
-                  />
-                </Col>
-              );
-            }}
-          />
         </Container>
       </Router>
     );
