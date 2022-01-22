@@ -23771,14 +23771,14 @@ class MainView extends _reactDefault.default.Component {
         super();
         this.state = {
             movies: [],
-            user: null
+            user: ''
         };
     }
     componentDidMount() {
         let accesToken = localStorage.getItem('token');
         if (accesToken !== null) {
             this.setState({
-                user: localStorage.getItem('user')
+                user: JSON.parse(localStorage.getItem('user'))
             });
             this.getMovies(accesToken);
         }
@@ -23786,10 +23786,10 @@ class MainView extends _reactDefault.default.Component {
     onLoggedIn(authData) {
         console.log(authData);
         this.setState({
-            user: authData.user.username
+            user: authData.user
         });
         localStorage.setItem('token', authData.token);
-        localStorage.setItem('user', authData.user.username);
+        localStorage.setItem('user', JSON.stringify(authData.user));
         this.getMovies(authData.token);
     }
     getMovies(token) {
@@ -23827,7 +23827,7 @@ class MainView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.BrowserRouter, {
             children: [
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_navbar.Navbar, {
-                    user: user1
+                    user: user1.username
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.js",
                     lineNumber: 84,
@@ -34368,25 +34368,15 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _profileViewScss = require("./profile-view.scss");
-var _s = $RefreshSig$();
-function ProfileView({ user  }) {
-    _s();
-    const [userData, setUserData] = _react.useState('');
-    const getUserData = ()=>{
-        _axiosDefault.default.get(`https://alexandersmovieapp.herokuapp.com/users/${user}`).then((response)=>{
-            setUserData(response.data);
-            console.log(response);
-        }).catch((err)=>{
-            setUserData('Userdata not found');
-            console.log(err);
-        });
-    };
+function ProfileView({ onBackClick  }) {
+    const userData = Json.parse(localStorage.getItem('user'));
     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
         children: [
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
+                children: userData.username
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.js",
-                lineNumber: 23,
+                lineNumber: 11,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -34397,17 +34387,16 @@ function ProfileView({ user  }) {
                 children: "Back"
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.js",
-                lineNumber: 25,
+                lineNumber: 13,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/profile-view.js",
-        lineNumber: 22,
+        lineNumber: 10,
         columnNumber: 5
     }, this));
 }
-_s(ProfileView, "WOg4K7GW0n9n9fAyq/XwZlhy4ZY=");
 _c = ProfileView;
 exports.default = ProfileView;
 var _c;

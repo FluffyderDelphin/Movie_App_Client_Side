@@ -4,23 +4,11 @@ import { Card, Button } from 'react-bootstrap';
 import './profile-view.scss';
 import { useState } from 'react';
 
-function ProfileView({ user }) {
-  const [userData, setUserData] = useState('');
-  const getUserData = () => {
-    axios
-      .get(`https://alexandersmovieapp.herokuapp.com/users/${user}`)
-      .then((response) => {
-        setUserData(response.data);
-        console.log(response);
-      })
-      .catch((err) => {
-        setUserData('Userdata not found');
-        console.log(err);
-      });
-  };
+function ProfileView({ onBackClick }) {
+  const userData = Json.parse(localStorage.getItem('user'));
   return (
     <Card>
-      <Card.Body></Card.Body>
+      <Card.Body>{userData.username}</Card.Body>
 
       <Button
         onClick={() => {
