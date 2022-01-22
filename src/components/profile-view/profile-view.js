@@ -27,14 +27,6 @@ export function ProfileView({ onBackClick, user, movies }) {
         </ListGroup>
         <Card.Title>Favorite Movies:</Card.Title>
         <ListGroup>{favMoviesList(user.favMovies)}</ListGroup>
-        <Button
-          onClick={() => {
-            onBackClick();
-          }}
-          className="cardBtn"
-        >
-          Back
-        </Button>
       </Card.Body>
     </Card>
   );

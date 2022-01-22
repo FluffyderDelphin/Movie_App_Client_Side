@@ -33988,7 +33988,7 @@ var _registrationViewScss = require("./registration-view.scss");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _s = $RefreshSig$();
-function RegisterView({ closeRegisterView  }) {
+function RegisterView({}) {
     _s();
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
@@ -34492,17 +34492,6 @@ function ProfileView({ onBackClick , user , movies  }) {
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
                     lineNumber: 29,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                    onClick: ()=>{
-                        onBackClick();
-                    },
-                    className: "cardBtn",
-                    children: "Back"
-                }, void 0, false, {
-                    fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 30,
                     columnNumber: 9
                 }, this)
             ]
