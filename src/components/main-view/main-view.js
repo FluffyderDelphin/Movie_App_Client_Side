@@ -8,6 +8,7 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegisterView } from '../registration-view/registration-view';
 import { Navbar } from '../navbar/navbar';
+import { ProfileView } from '../profile-view/profile-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -30,7 +31,7 @@ export class MainView extends React.Component {
       this.getMovies(accesToken);
     }
   }
-  onLoggidIn(authData) {
+  onLoggedIn(authData) {
     console.log(authData);
     this.setState({
       user: authData.user.username,
@@ -90,10 +91,7 @@ export class MainView extends React.Component {
                 if (!user)
                   return (
                     <Col>
-                      <LoginView
-                        movies={movies}
-                        onLoggedIn={(user) => this.onLoggedIn(user)}
-                      />
+                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                     </Col>
                   );
 
@@ -146,13 +144,13 @@ export class MainView extends React.Component {
           </Row>
           <Route
             path={`/user/${user}`}
-            render={({ match, histroy }) => {
+            render={({ match, history }) => {
               if (!user) return <Redirect to="/" />;
               return (
                 <Col>
                   <ProfileView
                     movies={movies}
-                    user={user}
+                    user={userData}
                     onBackClick={() => history.goBack()}
                   />
                 </Col>
@@ -161,7 +159,7 @@ export class MainView extends React.Component {
           />
           <Route
             path={`/user-update/${user}`}
-            render={({ match, histroy }) => {
+            render={({ match, history }) => {
               if (!user) return <Redirect to="/" />;
               return (
                 <Col>
