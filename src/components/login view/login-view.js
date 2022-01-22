@@ -6,7 +6,7 @@ import { Card } from 'react-bootstrap';
 import './login-view.scss';
 import axios from 'axios';
 
-export function LoginView({ onLoggedIn, onRegisterClick }) {
+export function LoginView({ onLoggedIn }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -85,13 +85,7 @@ export function LoginView({ onLoggedIn, onRegisterClick }) {
           >
             Submit
           </Button>
-          <Button
-            className="loginButtons"
-            variant="primary"
-            onClick={() => {
-              onRegisterClick(true);
-            }}
-          >
+          <Button className="loginButtons" variant="primary">
             Register
           </Button>
         </Form>
@@ -102,5 +96,4 @@ export function LoginView({ onLoggedIn, onRegisterClick }) {
 
 LoginView.propTypes = {
   onLoggedIn: PropTypes.func.isRequired,
-  onRegisterClick: PropTypes.func.isRequired,
 };

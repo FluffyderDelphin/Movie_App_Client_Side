@@ -7,11 +7,7 @@ import './index.scss';
 
 class Movieapp extends React.Component {
   render() {
-    return (
-      <Container>
-        <Mainview />
-      </Container>
-    );
+    return <Mainview />;
   }
 }
 const container = document.getElementsByClassName('app-container')[0];
