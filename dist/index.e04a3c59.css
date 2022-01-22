@@ -96,7 +96,10 @@ input[type=reset] {
 .col-card {
   margin-bottom: 20px;
 }
-
+.btn.cardBtn {
+  position: relative;
+  margin-top: 50px;
+}
 * {
   font-size: 18px;
 }
