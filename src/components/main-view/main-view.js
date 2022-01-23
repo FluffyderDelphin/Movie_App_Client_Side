@@ -14,6 +14,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import './main-view.scss';
+import { GenreView } from '../genre-view/genre-view';
+import { DirectorView } from '../directorView/directorView';
 
 export class MainView extends React.Component {
   constructor() {
@@ -64,6 +66,13 @@ export class MainView extends React.Component {
     localStorage.setItem('user', JSON.stringify(newUser));
   }
 
+  updateFav(newFav) {
+    this.setState({
+      user: newFav,
+    });
+    localStorage.setItem('user', JSON.stringify(newFav));
+  }
+
   // setSelectedMovie(movie) {
   //   this.setState({
   //     selectedMovie: movie,
@@ -106,7 +115,13 @@ export class MainView extends React.Component {
 
                 return movies.map((m) => (
                   <Col md={3} key={m._id}>
-                    <MovieCard movie={m} />
+                    <MovieCard
+                      user={user}
+                      movie={m}
+                      updateFav={(newFav) => {
+                        this.updateFav(newFav);
+                      }}
+                    />
                   </Col>
                 ));
               }}
@@ -136,11 +151,24 @@ export class MainView extends React.Component {
               }}
             />
             <Route
-              path="/movie-director/:id"
+              path="/directors/:id"
               render={({ match, history }) => {
                 return (
                   <Col>
                     <DirectorView
+                      movie={movies.find((m) => m._id === match.params.id)}
+                      onBackClick={() => history.goBack()}
+                    />
+                  </Col>
+                );
+              }}
+            />
+            <Route
+              path="/genres/:id"
+              render={({ match, history }) => {
+                return (
+                  <Col>
+                    <GenreView
                       movie={movies.find((m) => m._id === match.params.id)}
                       onBackClick={() => history.goBack()}
                     />

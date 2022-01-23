@@ -8,7 +8,24 @@ import { Link } from 'react-router-dom';
 
 export class MovieCard extends React.Component {
   render() {
-    const { movie } = this.props;
+    const { movie, updateFav, user } = this.props;
+    const handleUpdate = (e) => {
+      axios
+        .post(`/users/${user.username}/favorites/remove/${movie._id}`)
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+          updateFav(data);
+          alert('Update was sucessful ! ');
+          window.open('/', '_self');
+        })
+        .catch((response) => {
+          console.error(response);
+          alert('unable to update');
+        });
+      console.log('User has been updated');
+    };
+
     return (
       <Card className="cardContainer">
         <Card.Img variant="top" src={movie.imageurl} />
@@ -20,6 +37,14 @@ export class MovieCard extends React.Component {
               Open
             </Button>
           </Link>
+          <Button
+            variant="link"
+            onClick={() => {
+              this.handleUpdate();
+            }}
+          >
+            Add to favorites
+          </Button>
         </Card.Body>
       </Card>
     );
