@@ -66,6 +66,18 @@
   position: relative;
   padding-bottom: 70px;
 }
+
+.btn.cardLinkOne {
+  position: absolute;
+  bottom: 40px;
+  right: 10px;
+}
+
+.btn.cardLinkTwo {
+  position: absolute;
+  bottom: 10px;
+  right: 26px;
+}
 .registerTitle {
   text-align: center;
 }
@@ -93,9 +105,6 @@ input[type=reset] {
   cursor: pointer;
   outline: inherit;
 }
-.col-card {
-  margin-bottom: 20px;
-}
 .cardContainer {
   height: 100%;
 }
@@ -109,6 +118,9 @@ input[type=reset] {
   bottom: 10px;
 }
 
+.col-card {
+  margin-bottom: 20px;
+}
 * {
   font-size: 18px;
 }

@@ -23810,6 +23810,7 @@ class MainView extends _reactDefault.default.Component {
         this.setState({
             user: newUser
         });
+        localStorage.setItem('user', JSON.stringify(newUser));
     }
     // setSelectedMovie(movie) {
     //   this.setState({
@@ -23836,7 +23837,7 @@ class MainView extends _reactDefault.default.Component {
                     user: user1 ? user1.username : null
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 90,
+                    lineNumber: 91,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_containerDefault.default, {
@@ -23865,7 +23866,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 93,
+                                lineNumber: 94,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23883,7 +23884,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 113,
+                                lineNumber: 114,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23900,7 +23901,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 124,
+                                lineNumber: 125,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23916,7 +23917,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 137,
+                                lineNumber: 138,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23938,7 +23939,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 151,
+                                lineNumber: 152,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23951,29 +23952,31 @@ class MainView extends _reactDefault.default.Component {
                                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_updateUser.UpdateUser, {
                                             user: user1,
                                             onBackClick: ()=>history.goBack()
+                                            ,
+                                            updateUser: (updatedUser)=>this.updateUser(updatedUser)
                                         }, void 0, false, void 0, void 0)
                                     }, void 0, false, void 0, void 0));
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 169,
+                                lineNumber: 170,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/main-view/main-view.js",
-                        lineNumber: 92,
+                        lineNumber: 93,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 91,
+                    lineNumber: 92,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/main-view/main-view.js",
-            lineNumber: 89,
+            lineNumber: 90,
             columnNumber: 7
         }, this));
     }
@@ -23985,7 +23988,7 @@ exports.default = MainView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","react-router-dom":"cHIiW","../login view/login-view":"4u3h8","../movie-card/movie-card":"a01fI","../movie-view/movie-view":"amD1G","../registration-view/registration-view":"hvgcl","../navbar/navbar":"02YIJ","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-bootstrap/Container":"hEdsw","./main-view.scss":"eBaMl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../profile-view/profile-view":"ewjYi","../update-user/update-user":"kmX9F"}],"jo6P5":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","react-router-dom":"cHIiW","../login view/login-view":"4u3h8","../movie-card/movie-card":"a01fI","../movie-view/movie-view":"amD1G","../registration-view/registration-view":"hvgcl","../navbar/navbar":"02YIJ","../profile-view/profile-view":"ewjYi","../update-user/update-user":"kmX9F","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-bootstrap/Container":"hEdsw","./main-view.scss":"eBaMl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jo6P5":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
@@ -33949,6 +33952,44 @@ class MovieView extends _reactDefault.default.Component {
                     fileName: "src/components/movie-view/movie-view.js",
                     lineNumber: 25,
                     columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
+                    to: `/directors/${movie.director.name}`,
+                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
+                        className: "cardLinkOne",
+                        variant: "link",
+                        children: [
+                            "Director",
+                            ' '
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/movie-view/movie-view.js",
+                        lineNumber: 35,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.js",
+                    lineNumber: 34,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
+                    to: `/genres/${movie.genre.name}`,
+                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
+                        className: "cardLinkTwo",
+                        variant: "link",
+                        children: [
+                            "Genre",
+                            ' '
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/movie-view/movie-view.js",
+                        lineNumber: 41,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.js",
+                    lineNumber: 40,
+                    columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
@@ -34362,46 +34403,7 @@ $RefreshReg$(_c, "Navbar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","./navbar.scss":"8wkoA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8wkoA":[function() {},{}],"cMC39":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-const DEVICE_SIZES = [
-    'xxl',
-    'xl',
-    'lg',
-    'md',
-    'sm',
-    'xs'
-];
-const Row = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = 'div' , ...props }, ref)=>{
-    const decoratedBsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'row');
-    const sizePrefix = `${decoratedBsPrefix}-cols`;
-    const classes = [];
-    DEVICE_SIZES.forEach((brkPoint)=>{
-        const propValue = props[brkPoint];
-        delete props[brkPoint];
-        let cols;
-        if (propValue != null && typeof propValue === 'object') ({ cols  } = propValue);
-        else cols = propValue;
-        const infix = brkPoint !== 'xs' ? `-${brkPoint}` : '';
-        if (cols != null) classes.push(`${sizePrefix}${infix}-${cols}`);
-    });
-    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
-        ref: ref,
-        ...props,
-        className: _classnamesDefault.default(className, decoratedBsPrefix, ...classes)
-    }));
-});
-Row.displayName = 'Row';
-exports.default = Row;
-
-},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eBaMl":[function() {},{}],"ewjYi":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","./navbar.scss":"8wkoA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8wkoA":[function() {},{}],"ewjYi":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4bac = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34604,7 +34606,6 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                 const data = response.data;
                 console.log(data);
                 updateUser(data);
-                localStorage.setItem('user', JSON.stringify(data));
                 alert('Update was sucessful ! ');
                 window.open('/', '_self');
             }).catch((response)=>{
@@ -34622,12 +34623,12 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                     children: "Update Information"
                 }, void 0, false, {
                     fileName: "src/components/update-user/update-user.js",
-                    lineNumber: 81,
+                    lineNumber: 80,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/update-user/update-user.js",
-                lineNumber: 80,
+                lineNumber: 79,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
@@ -34640,7 +34641,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: "Username: "
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 86,
+                                    lineNumber: 85,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -34649,7 +34650,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     onChange: (e)=>setUsername(e.target.value)
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 87,
+                                    lineNumber: 86,
                                     columnNumber: 13
                                 }, this),
                                 usernameErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
@@ -34657,13 +34658,13 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: usernameErr
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 92,
+                                    lineNumber: 91,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/update-user/update-user.js",
-                            lineNumber: 85,
+                            lineNumber: 84,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
@@ -34673,7 +34674,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: "Password: "
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 95,
+                                    lineNumber: 94,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -34682,7 +34683,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     onChange: (e)=>setPassword(e.target.value)
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 96,
+                                    lineNumber: 95,
                                     columnNumber: 13
                                 }, this),
                                 passwordErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
@@ -34690,13 +34691,13 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: passwordErr
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 101,
+                                    lineNumber: 100,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/update-user/update-user.js",
-                            lineNumber: 94,
+                            lineNumber: 93,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
@@ -34706,7 +34707,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: "Email: "
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 104,
+                                    lineNumber: 103,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -34715,7 +34716,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     onChange: (e)=>setEmail(e.target.value)
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 105,
+                                    lineNumber: 104,
                                     columnNumber: 13
                                 }, this),
                                 emailErrr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
@@ -34723,13 +34724,13 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: emailErrr
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 110,
+                                    lineNumber: 109,
                                     columnNumber: 27
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/update-user/update-user.js",
-                            lineNumber: 103,
+                            lineNumber: 102,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
@@ -34739,7 +34740,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: "Birthday: "
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 113,
+                                    lineNumber: 112,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -34748,13 +34749,13 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     onChange: (e)=>setBirthday(e.target.value)
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 114,
+                                    lineNumber: 113,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/update-user/update-user.js",
-                            lineNumber: 112,
+                            lineNumber: 111,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
@@ -34764,7 +34765,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                             children: "Submit"
                         }, void 0, false, {
                             fileName: "src/components/update-user/update-user.js",
-                            lineNumber: 121,
+                            lineNumber: 120,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
@@ -34774,24 +34775,24 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                             children: "Back"
                         }, void 0, false, {
                             fileName: "src/components/update-user/update-user.js",
-                            lineNumber: 124,
+                            lineNumber: 123,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/update-user/update-user.js",
-                    lineNumber: 84,
+                    lineNumber: 83,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/update-user/update-user.js",
-                lineNumber: 83,
+                lineNumber: 82,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/update-user/update-user.js",
-        lineNumber: 79,
+        lineNumber: 78,
         columnNumber: 5
     }, this));
 }
@@ -34805,6 +34806,45 @@ $RefreshReg$(_c, "UpdateUser");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap/Form":"iBZ80","react-bootstrap/Button":"aPzUt","react-bootstrap":"3AD9A","./update-user.scss":"dg4yv","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dg4yv":[function() {},{}],"lJZlQ":[function() {},{}]},["kn9T2","7nZVA","8lqZg"], "8lqZg", "parcelRequirecdd9")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap/Form":"iBZ80","react-bootstrap/Button":"aPzUt","react-bootstrap":"3AD9A","./update-user.scss":"dg4yv","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dg4yv":[function() {},{}],"cMC39":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+const DEVICE_SIZES = [
+    'xxl',
+    'xl',
+    'lg',
+    'md',
+    'sm',
+    'xs'
+];
+const Row = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = 'div' , ...props }, ref)=>{
+    const decoratedBsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'row');
+    const sizePrefix = `${decoratedBsPrefix}-cols`;
+    const classes = [];
+    DEVICE_SIZES.forEach((brkPoint)=>{
+        const propValue = props[brkPoint];
+        delete props[brkPoint];
+        let cols;
+        if (propValue != null && typeof propValue === 'object') ({ cols  } = propValue);
+        else cols = propValue;
+        const infix = brkPoint !== 'xs' ? `-${brkPoint}` : '';
+        if (cols != null) classes.push(`${sizePrefix}${infix}-${cols}`);
+    });
+    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
+        ref: ref,
+        ...props,
+        className: _classnamesDefault.default(className, decoratedBsPrefix, ...classes)
+    }));
+});
+Row.displayName = 'Row';
+exports.default = Row;
+
+},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eBaMl":[function() {},{}],"lJZlQ":[function() {},{}]},["kn9T2","7nZVA","8lqZg"], "8lqZg", "parcelRequirecdd9")
 
 //# sourceMappingURL=index.975ef6c8.js.map

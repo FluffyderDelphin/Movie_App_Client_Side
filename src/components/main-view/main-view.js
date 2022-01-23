@@ -61,6 +61,7 @@ export class MainView extends React.Component {
     this.setState({
       user: newUser,
     });
+    localStorage.setItem('user', JSON.stringify(newUser));
   }
 
   // setSelectedMovie(movie) {
@@ -175,6 +176,7 @@ export class MainView extends React.Component {
                     <UpdateUser
                       user={user}
                       onBackClick={() => history.goBack()}
+                      updateUser={(updatedUser) => this.updateUser(updatedUser)}
                     />
                   </Col>
                 );

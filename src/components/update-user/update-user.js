@@ -63,7 +63,6 @@ export function UpdateUser({ user, onBackClick, updateUser }) {
           const data = response.data;
           console.log(data);
           updateUser(data);
-          localStorage.setItem('user', JSON.stringify(data));
           alert('Update was sucessful ! ');
           window.open('/', '_self');
         })
