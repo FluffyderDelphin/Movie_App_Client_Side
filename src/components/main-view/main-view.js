@@ -9,6 +9,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { RegisterView } from '../registration-view/registration-view';
 import { Navbar } from '../navbar/navbar';
 import { ProfileView } from '../profile-view/profile-view';
+import { UpdateUser } from '../update-user/update-user';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -55,6 +56,11 @@ export class MainView extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
+  }
+  updateUser(newUser) {
+    this.setState({
+      user: newUser,
+    });
   }
 
   // setSelectedMovie(movie) {
@@ -149,6 +155,9 @@ export class MainView extends React.Component {
                 return (
                   <Col>
                     <ProfileView
+                      updateUser={(newUser) => {
+                        this.updateUser(newUser);
+                      }}
                       movies={movies}
                       user={user}
                       onBackClick={() => history.goBack()}
@@ -165,7 +174,7 @@ export class MainView extends React.Component {
                   <Col>
                     <UserUpdate
                       user={user}
-                      onBackClick={() => histroy.goBack()}
+                      onBackClick={() => history.goBack()}
                     />
                   </Col>
                 );

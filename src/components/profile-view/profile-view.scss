@@ -1,4 +1,15 @@
-.btn.cardBtn {
-  position: relative;
-  margin-top: 50px;
+@use '../../colors';
+
+.cardContainer {
+  height: 100%;
+}
+
+.btn.profileBtn {
+  background-color: darken(colors.$primary-color, 15%);
+  border-color: darken(colors.$primary-color, 15%);
+  color: #fff;
+  margin: 10px;
+
+  position: absolute;
+  bottom: 10px;
 }

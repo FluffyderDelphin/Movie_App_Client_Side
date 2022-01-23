@@ -6,7 +6,7 @@ import { Card } from 'react-bootstrap';
 import './update-user.scss';
 import axios from 'axios';
 
-export function UpdateUser({ user }) {
+export function UpdateUser({ user, onBackClick, updateUser }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [birthday, setBirthday] = useState('');
@@ -62,6 +62,8 @@ export function UpdateUser({ user }) {
         .then((response) => {
           const data = response.data;
           console.log(data);
+          updateUser(data);
+          localStorage.setItem('user', JSON.stringify(data));
           alert('Update was sucessful ! ');
           window.open('/', '_self');
         })

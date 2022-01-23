@@ -4,7 +4,6 @@ import './profile-view.scss';
 import { useState } from 'react';
 
 export function ProfileView({ onBackClick, user, movies }) {
-  const testList = ['61a8ea062c5b82227094ce5e'];
   const favMoviesList = (list) => {
     if (list.length === 0) {
       return <ListGroup.Item>No Favorite Movies</ListGroup.Item>;
@@ -27,6 +26,14 @@ export function ProfileView({ onBackClick, user, movies }) {
         </ListGroup>
         <Card.Title>Favorite Movies:</Card.Title>
         <ListGroup>{favMoviesList(user.favMovies)}</ListGroup>
+        <Button
+          onClick={() => {
+            onBackClick();
+          }}
+          className="profileBtn"
+        >
+          Back
+        </Button>
       </Card.Body>
     </Card>
   );
