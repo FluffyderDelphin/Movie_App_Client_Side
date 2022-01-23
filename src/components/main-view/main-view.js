@@ -172,7 +172,7 @@ export class MainView extends React.Component {
                 if (!user) return <Redirect to="/" />;
                 return (
                   <Col>
-                    <UserUpdate
+                    <UpdateUser
                       user={user}
                       onBackClick={() => history.goBack()}
                     />

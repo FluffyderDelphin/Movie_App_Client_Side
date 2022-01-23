@@ -23948,7 +23948,7 @@ class MainView extends _reactDefault.default.Component {
                                         to: "/"
                                     }, void 0, false, void 0, void 0));
                                     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_colDefault.default, {
-                                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(UserUpdate, {
+                                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_updateUser.UpdateUser, {
                                             user: user1,
                                             onBackClick: ()=>history.goBack()
                                         }, void 0, false, void 0, void 0)
