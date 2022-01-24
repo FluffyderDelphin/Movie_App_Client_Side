@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { Card } from 'react-bootstrap';
 import './login-view.scss';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export function LoginView({ onLoggedIn }) {
   const [username, setUsername] = useState('');
@@ -85,9 +86,11 @@ export function LoginView({ onLoggedIn }) {
           >
             Submit
           </Button>
-          <Button className="loginButtons" variant="primary">
-            Register
-          </Button>
+          <Link to={'/register'}>
+            <Button className="loginButtons" variant="primary">
+              Register
+            </Button>
+          </Link>
         </Form>
       </Card.Body>
     </Card>

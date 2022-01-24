@@ -23824,22 +23824,26 @@ class MainView extends _reactDefault.default.Component {
     //     showRegisterView: register,
     //   });
     // }
-    // onLoggedOut() {
-    //   localStorage.removeItem('token');
-    //   localStorage.removeItem('user');
-    //   this.setState({
-    //     user: null,
-    //   });
-    // }
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        localStorage.clear();
+        this.setState({
+            user: null
+        });
+    }
     render() {
         const { movies , user: user1  } = this.state;
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.BrowserRouter, {
             children: [
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_navbar.Navbar, {
-                    user: user1 ? user1.username : null
+                    user: user1 ? user1.username : null,
+                    onLoggedOut: ()=>{
+                        this.onLoggedOut();
+                    }
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 93,
+                    lineNumber: 94,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_containerDefault.default, {
@@ -23872,7 +23876,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 96,
+                                lineNumber: 102,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23890,7 +23894,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 122,
+                                lineNumber: 128,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23907,7 +23911,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 133,
+                                lineNumber: 139,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23923,7 +23927,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 146,
+                                lineNumber: 152,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23939,7 +23943,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 159,
+                                lineNumber: 165,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23961,7 +23965,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 173,
+                                lineNumber: 179,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
@@ -23981,24 +23985,24 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 191,
+                                lineNumber: 197,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/main-view/main-view.js",
-                        lineNumber: 95,
+                        lineNumber: 101,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.js",
-                    lineNumber: 94,
+                    lineNumber: 100,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/main-view/main-view.js",
-            lineNumber: 92,
+            lineNumber: 93,
             columnNumber: 7
         }, this));
     }
@@ -28639,6 +28643,7 @@ var _reactBootstrap = require("react-bootstrap");
 var _loginViewScss = require("./login-view.scss");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 function LoginView({ onLoggedIn  }) {
     _s();
@@ -28688,12 +28693,12 @@ function LoginView({ onLoggedIn  }) {
                     children: "Login"
                 }, void 0, false, {
                     fileName: "src/components/login view/login-view.js",
-                    lineNumber: 59,
+                    lineNumber: 60,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/login view/login-view.js",
-                lineNumber: 58,
+                lineNumber: 59,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
@@ -28706,7 +28711,7 @@ function LoginView({ onLoggedIn  }) {
                                     children: "Username:"
                                 }, void 0, false, {
                                     fileName: "src/components/login view/login-view.js",
-                                    lineNumber: 64,
+                                    lineNumber: 65,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -28714,7 +28719,7 @@ function LoginView({ onLoggedIn  }) {
                                     onChange: (e)=>setUsername(e.target.value)
                                 }, void 0, false, {
                                     fileName: "src/components/login view/login-view.js",
-                                    lineNumber: 65,
+                                    lineNumber: 66,
                                     columnNumber: 13
                                 }, this),
                                 usernameErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
@@ -28722,13 +28727,13 @@ function LoginView({ onLoggedIn  }) {
                                     children: usernameErr
                                 }, void 0, false, {
                                     fileName: "src/components/login view/login-view.js",
-                                    lineNumber: 69,
+                                    lineNumber: 70,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/login view/login-view.js",
-                            lineNumber: 63,
+                            lineNumber: 64,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
@@ -28738,7 +28743,7 @@ function LoginView({ onLoggedIn  }) {
                                     children: "Password: "
                                 }, void 0, false, {
                                     fileName: "src/components/login view/login-view.js",
-                                    lineNumber: 72,
+                                    lineNumber: 73,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -28746,7 +28751,7 @@ function LoginView({ onLoggedIn  }) {
                                     onChange: (e)=>setPassword(e.target.value)
                                 }, void 0, false, {
                                     fileName: "src/components/login view/login-view.js",
-                                    lineNumber: 73,
+                                    lineNumber: 74,
                                     columnNumber: 13
                                 }, this),
                                 passwordErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
@@ -28754,13 +28759,13 @@ function LoginView({ onLoggedIn  }) {
                                     children: passwordErr
                                 }, void 0, false, {
                                     fileName: "src/components/login view/login-view.js",
-                                    lineNumber: 77,
+                                    lineNumber: 78,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/login view/login-view.js",
-                            lineNumber: 71,
+                            lineNumber: 72,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
@@ -28771,33 +28776,40 @@ function LoginView({ onLoggedIn  }) {
                             children: "Submit"
                         }, void 0, false, {
                             fileName: "src/components/login view/login-view.js",
-                            lineNumber: 80,
+                            lineNumber: 81,
                             columnNumber: 11
                         }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
-                            className: "loginButtons",
-                            variant: "primary",
-                            children: "Register"
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
+                            to: '/register',
+                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
+                                className: "loginButtons",
+                                variant: "primary",
+                                children: "Register"
+                            }, void 0, false, {
+                                fileName: "src/components/login view/login-view.js",
+                                lineNumber: 90,
+                                columnNumber: 13
+                            }, this)
                         }, void 0, false, {
                             fileName: "src/components/login view/login-view.js",
-                            lineNumber: 88,
+                            lineNumber: 89,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/login view/login-view.js",
-                    lineNumber: 62,
+                    lineNumber: 63,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/login view/login-view.js",
-                lineNumber: 61,
+                lineNumber: 62,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/login view/login-view.js",
-        lineNumber: 57,
+        lineNumber: 58,
         columnNumber: 5
     }, this));
 }
@@ -28814,7 +28826,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap/Form":"iBZ80","react-bootstrap/Button":"aPzUt","react-bootstrap":"3AD9A","./login-view.scss":"4AeOV","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iBZ80":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap/Form":"iBZ80","react-bootstrap/Button":"aPzUt","react-bootstrap":"3AD9A","./login-view.scss":"4AeOV","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"cHIiW"}],"iBZ80":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -34356,11 +34368,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _navbarScss = require("./navbar.scss");
-function Navbar({ user  }) {
-    const onLoggedOut = ()=>{
-        localStorage.clear();
-        window.open('/', '_self');
-    };
+function Navbar({ user , onLoggedOut  }) {
     const isAuth = ()=>{
         if (typeof window == 'undefined') return false;
         if (localStorage.getItem('token')) return localStorage.getItem('token');
@@ -34383,14 +34391,14 @@ function Navbar({ user  }) {
                     ]
                 }, void 0, true, {
                     fileName: "src/components/navbar/navbar.js",
-                    lineNumber: 32,
+                    lineNumber: 27,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Toggle, {
                     "aria-controls": "responsive-navbar-nav"
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.js",
-                    lineNumber: 36,
+                    lineNumber: 31,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Collapse, {
@@ -34403,7 +34411,7 @@ function Navbar({ user  }) {
                                 children: user
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.js",
-                                lineNumber: 39,
+                                lineNumber: 34,
                                 columnNumber: 26
                             }, this),
                             isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -34414,7 +34422,7 @@ function Navbar({ user  }) {
                                 children: "Logout"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.js",
-                                lineNumber: 41,
+                                lineNumber: 36,
                                 columnNumber: 15
                             }, this),
                             !isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
@@ -34422,7 +34430,7 @@ function Navbar({ user  }) {
                                 children: "Sign-in"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.js",
-                                lineNumber: 50,
+                                lineNumber: 45,
                                 columnNumber: 27
                             }, this),
                             !isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
@@ -34430,29 +34438,29 @@ function Navbar({ user  }) {
                                 children: "Sign-up"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.js",
-                                lineNumber: 51,
+                                lineNumber: 46,
                                 columnNumber: 27
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/navbar/navbar.js",
-                        lineNumber: 38,
+                        lineNumber: 33,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.js",
-                    lineNumber: 37,
+                    lineNumber: 32,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/navbar/navbar.js",
-            lineNumber: 31,
+            lineNumber: 26,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/components/navbar/navbar.js",
-        lineNumber: 24,
+        lineNumber: 19,
         columnNumber: 5
     }, this));
 }

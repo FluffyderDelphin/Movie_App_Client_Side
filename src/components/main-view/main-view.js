@@ -77,20 +77,26 @@ export class MainView extends React.Component {
   //   });
   // }
 
-  // onLoggedOut() {
-  //   localStorage.removeItem('token');
-  //   localStorage.removeItem('user');
-  //   this.setState({
-  //     user: null,
-  //   });
-  // }
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.clear();
+    this.setState({
+      user: null,
+    });
+  }
 
   render() {
     const { movies, user } = this.state;
 
     return (
       <Router>
-        <Navbar user={user ? user.username : null} />
+        <Navbar
+          user={user ? user.username : null}
+          onLoggedOut={() => {
+            this.onLoggedOut();
+          }}
+        />
         <Container>
           <Row className="main-view justify-content-md-center">
             <Route
