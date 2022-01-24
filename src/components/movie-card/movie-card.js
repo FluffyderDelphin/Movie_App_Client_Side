@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -7,24 +8,59 @@ import './movie-card.scss';
 import { Link } from 'react-router-dom';
 
 export class MovieCard extends React.Component {
+  handleUpdate = (e, action) => {
+    e.preventDefault();
+    const token = localStorage.getItem('token');
+    const { movie, user, updateUser } = this.props;
+    axios
+      .put(
+        `https://alexandersmovieapp.herokuapp.com/users/${user.username}/favorites/${action}/${movie._id}`,
+        {},
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((response) => {
+        const data = response.data;
+        console.log(data);
+        updateUser(data);
+        alert('Update was sucessful ! ');
+      })
+      .catch((response) => {
+        console.error(response);
+        alert('unable to update');
+      });
+    console.log('User has been updated');
+  };
+
+  checkButton = (movieId) => {
+    const { user } = this.props;
+    if (user.favMovies.includes(movieId)) {
+      return (
+        <Button
+          variant="link"
+          onClick={(e) => {
+            this.handleUpdate(e, 'remove');
+          }}
+        >
+          Remove from favorites
+        </Button>
+      );
+    } else {
+      return (
+        <Button
+          variant="link"
+          onClick={(e) => {
+            this.handleUpdate(e, 'add');
+          }}
+        >
+          Add to Favorites
+        </Button>
+      );
+    }
+  };
   render() {
-    const { movie, updateFav, user } = this.props;
-    const handleUpdate = (e) => {
-      axios
-        .post(`/users/${user.username}/favorites/remove/${movie._id}`)
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-          updateFav(data);
-          alert('Update was sucessful ! ');
-          window.open('/', '_self');
-        })
-        .catch((response) => {
-          console.error(response);
-          alert('unable to update');
-        });
-      console.log('User has been updated');
-    };
+    const { movie, user } = this.props;
 
     return (
       <Card className="cardContainer">
@@ -37,14 +73,7 @@ export class MovieCard extends React.Component {
               Open
             </Button>
           </Link>
-          <Button
-            variant="link"
-            onClick={() => {
-              this.handleUpdate();
-            }}
-          >
-            Add to favorites
-          </Button>
+          {this.checkButton(movie._id)}
         </Card.Body>
       </Card>
     );

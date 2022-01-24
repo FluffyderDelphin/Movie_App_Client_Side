@@ -66,13 +66,6 @@ export class MainView extends React.Component {
     localStorage.setItem('user', JSON.stringify(newUser));
   }
 
-  updateFav(newFav) {
-    this.setState({
-      user: newFav,
-    });
-    localStorage.setItem('user', JSON.stringify(newFav));
-  }
-
   // setSelectedMovie(movie) {
   //   this.setState({
   //     selectedMovie: movie,
@@ -118,8 +111,8 @@ export class MainView extends React.Component {
                     <MovieCard
                       user={user}
                       movie={m}
-                      updateFav={(newFav) => {
-                        this.updateFav(newFav);
+                      updateUser={(newUser) => {
+                        this.updateUser(newUser);
                       }}
                     />
                   </Col>
