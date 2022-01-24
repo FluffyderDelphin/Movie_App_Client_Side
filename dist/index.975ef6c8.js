@@ -34481,24 +34481,29 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _profileViewScss = require("./profile-view.scss");
+var _reactRouterDom = require("react-router-dom");
 function ProfileView({ onBackClick , user , movies  }) {
-    const favMoviesList = (list)=>{
-        if (list.length === 0) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup.Item, {
+    const favMoviesList = ()=>{
+        if (user.favMovies.length === 0) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup.Item, {
             children: "No Favorite Movies"
         }, void 0, false, {
             fileName: "src/components/profile-view/profile-view.js",
-            lineNumber: 9,
+            lineNumber: 10,
             columnNumber: 14
         }, this));
-        else return list.map((m)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup.Item, {
-                children: movies.find((param)=>param._id === m
-                ).title
-            }, void 0, false, {
-                fileName: "src/components/profile-view/profile-view.js",
-                lineNumber: 12,
-                columnNumber: 9
-            }, this)
-        );
+        else {
+            let filterArray = movies.filter((movie)=>{
+                return user.favMovies.includes(movie._id);
+            });
+            return filterArray.map((m)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup.Item, {
+                    children: m.title
+                }, m._id, false, {
+                    fileName: "src/components/profile-view/profile-view.js",
+                    lineNumber: 16,
+                    columnNumber: 9
+                }, this)
+            );
+        }
     };
     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
@@ -34507,7 +34512,7 @@ function ProfileView({ onBackClick , user , movies  }) {
                     children: "User Profile :"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 21,
+                    lineNumber: 24,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup, {
@@ -34521,7 +34526,7 @@ function ProfileView({ onBackClick , user , movies  }) {
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.js",
-                            lineNumber: 23,
+                            lineNumber: 26,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup.Item, {
@@ -34531,7 +34536,7 @@ function ProfileView({ onBackClick , user , movies  }) {
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.js",
-                            lineNumber: 24,
+                            lineNumber: 27,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup.Item, {
@@ -34541,27 +34546,28 @@ function ProfileView({ onBackClick , user , movies  }) {
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.js",
-                            lineNumber: 25,
+                            lineNumber: 28,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 22,
+                    lineNumber: 25,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
+                    className: "titleclass",
                     children: "Favorite Movies:"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 27,
+                    lineNumber: 30,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup, {
-                    children: favMoviesList(user.favMovies)
+                    children: favMoviesList()
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 28,
+                    lineNumber: 31,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -34572,18 +34578,33 @@ function ProfileView({ onBackClick , user , movies  }) {
                     children: "Back"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 29,
+                    lineNumber: 32,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
+                    to: `/user-update/${user.username}`,
+                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                        className: "cardLinkOne",
+                        children: "Update Information"
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/profile-view.js",
+                        lineNumber: 41,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "src/components/profile-view/profile-view.js",
+                    lineNumber: 40,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/profile-view/profile-view.js",
-            lineNumber: 20,
+            lineNumber: 23,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/components/profile-view/profile-view.js",
-        lineNumber: 19,
+        lineNumber: 22,
         columnNumber: 5
     }, this));
 }
@@ -34596,7 +34617,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","./profile-view.scss":"eyKYH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eyKYH":[function() {},{}],"kmX9F":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","./profile-view.scss":"eyKYH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"cHIiW"}],"eyKYH":[function() {},{}],"kmX9F":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$90fb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34657,13 +34678,18 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
     };
     const handleUpdate = (e)=>{
         e.preventDefault();
+        const token = localStorage.getItem('token');
         const isReq = validate();
         if (isReq) {
-            _axiosDefault.default.post(`https://alexandersmovieapp.herokuapp.com/users/${user.username}`, {
+            _axiosDefault.default.put(`https://alexandersmovieapp.herokuapp.com/users/${user.username}`, {
                 username: username,
                 password: password,
                 email: email,
                 birthday: birthday
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
             }).then((response)=>{
                 const data = response.data;
                 console.log(data);
@@ -34685,12 +34711,12 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                     children: "Update Information"
                 }, void 0, false, {
                     fileName: "src/components/update-user/update-user.js",
-                    lineNumber: 80,
+                    lineNumber: 84,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/update-user/update-user.js",
-                lineNumber: 79,
+                lineNumber: 83,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
@@ -34703,7 +34729,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: "Username: "
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 85,
+                                    lineNumber: 89,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -34712,7 +34738,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     onChange: (e)=>setUsername(e.target.value)
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 86,
+                                    lineNumber: 90,
                                     columnNumber: 13
                                 }, this),
                                 usernameErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
@@ -34720,13 +34746,13 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: usernameErr
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 91,
+                                    lineNumber: 95,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/update-user/update-user.js",
-                            lineNumber: 84,
+                            lineNumber: 88,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
@@ -34736,7 +34762,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: "Password: "
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 94,
+                                    lineNumber: 98,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -34745,7 +34771,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     onChange: (e)=>setPassword(e.target.value)
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 95,
+                                    lineNumber: 99,
                                     columnNumber: 13
                                 }, this),
                                 passwordErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
@@ -34753,13 +34779,13 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: passwordErr
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 100,
+                                    lineNumber: 104,
                                     columnNumber: 29
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/update-user/update-user.js",
-                            lineNumber: 93,
+                            lineNumber: 97,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
@@ -34769,7 +34795,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: "Email: "
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 103,
+                                    lineNumber: 107,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -34778,7 +34804,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     onChange: (e)=>setEmail(e.target.value)
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 104,
+                                    lineNumber: 108,
                                     columnNumber: 13
                                 }, this),
                                 emailErrr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
@@ -34786,13 +34812,13 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: emailErrr
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 109,
+                                    lineNumber: 113,
                                     columnNumber: 27
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/update-user/update-user.js",
-                            lineNumber: 102,
+                            lineNumber: 106,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
@@ -34802,7 +34828,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     children: "Birthday: "
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 112,
+                                    lineNumber: 116,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -34811,13 +34837,13 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                                     onChange: (e)=>setBirthday(e.target.value)
                                 }, void 0, false, {
                                     fileName: "src/components/update-user/update-user.js",
-                                    lineNumber: 113,
+                                    lineNumber: 117,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/update-user/update-user.js",
-                            lineNumber: 111,
+                            lineNumber: 115,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
@@ -34827,7 +34853,7 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                             children: "Submit"
                         }, void 0, false, {
                             fileName: "src/components/update-user/update-user.js",
-                            lineNumber: 120,
+                            lineNumber: 124,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
@@ -34837,24 +34863,24 @@ function UpdateUser({ user , onBackClick , updateUser  }) {
                             children: "Back"
                         }, void 0, false, {
                             fileName: "src/components/update-user/update-user.js",
-                            lineNumber: 123,
+                            lineNumber: 127,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/update-user/update-user.js",
-                    lineNumber: 83,
+                    lineNumber: 87,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/update-user/update-user.js",
-                lineNumber: 82,
+                lineNumber: 86,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/update-user/update-user.js",
-        lineNumber: 78,
+        lineNumber: 82,
         columnNumber: 5
     }, this));
 }

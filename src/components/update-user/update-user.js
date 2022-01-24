@@ -47,16 +47,20 @@ export function UpdateUser({ user, onBackClick, updateUser }) {
 
   const handleUpdate = (e) => {
     e.preventDefault();
+    const token = localStorage.getItem('token');
     const isReq = validate();
     if (isReq) {
       axios
-        .post(
+        .put(
           `https://alexandersmovieapp.herokuapp.com/users/${user.username}`,
           {
             username: username,
             password: password,
             email: email,
             birthday: birthday,
+          },
+          {
+            headers: { Authorization: `Bearer ${token}` },
           }
         )
         .then((response) => {
