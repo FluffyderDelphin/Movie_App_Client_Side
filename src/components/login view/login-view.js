@@ -48,6 +48,7 @@ export function LoginView({ onLoggedIn }) {
           onLoggedIn(data);
         })
         .catch((e) => {
+          alert('Login failed!');
           console.log(`User with the Name ${username} not found`);
           console.log(password);
         });

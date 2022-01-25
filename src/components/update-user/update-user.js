@@ -7,10 +7,10 @@ import './update-user.scss';
 import axios from 'axios';
 
 export function UpdateUser({ user, onBackClick, updateUser }) {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState(user.username);
   const [password, setPassword] = useState('');
-  const [birthday, setBirthday] = useState('');
-  const [email, setEmail] = useState('');
+  const [birthday, setBirthday] = useState(user.birthday.substring(0, 10));
+  const [email, setEmail] = useState(user.email);
 
   const [usernameErr, setUsernameErr] = useState('');
   const [passwordErr, setPasswordErr] = useState('');
