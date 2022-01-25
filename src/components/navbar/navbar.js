@@ -37,6 +37,7 @@ export function Navbar({ user, onLoggedOut }) {
                 variant="link"
                 onClick={() => {
                   onLoggedOut();
+                  window.open('/', '_self');
                 }}
               >
                 Logout

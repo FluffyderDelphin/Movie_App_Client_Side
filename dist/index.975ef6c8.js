@@ -23900,8 +23900,8 @@ class MainView extends _reactDefault.default.Component {
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
                                 path: "/movies/:id",
                                 render: ({ match , history  })=>{
-                                    if (!user1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Redirect, {
-                                        to: "/"
+                                    if (movies.length === 0) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                        className: "main-view"
                                     }, void 0, false, void 0, void 0));
                                     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_colDefault.default, {
                                         md: 8,
@@ -23958,6 +23958,12 @@ class MainView extends _reactDefault.default.Component {
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
                                 path: `/user/${user1 ? user1.username : null}`,
                                 render: ({ match , history  })=>{
+                                    if (movies.length === 0) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                        className: "main-view"
+                                    }, void 0, false, void 0, void 0));
+                                    if (!user1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Redirect, {
+                                        to: "/"
+                                    }, void 0, false, void 0, void 0));
                                     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_colDefault.default, {
                                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_profileView.ProfileView, {
                                             updateUser: (newUser)=>{
@@ -23977,6 +23983,9 @@ class MainView extends _reactDefault.default.Component {
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
                                 path: `/user-update/${user1 ? user1.username : null}`,
                                 render: ({ match , history  })=>{
+                                    if (!user1) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Redirect, {
+                                        to: "/"
+                                    }, void 0, false, void 0, void 0));
                                     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_colDefault.default, {
                                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_updateUser.UpdateUser, {
                                             user: user1,
@@ -23988,7 +23997,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 199,
+                                lineNumber: 201,
                                 columnNumber: 13
                             }, this)
                         ]
@@ -34422,6 +34431,7 @@ function Navbar({ user , onLoggedOut  }) {
                                 variant: "link",
                                 onClick: ()=>{
                                     onLoggedOut();
+                                    window.open('/', '_self');
                                 },
                                 children: "Logout"
                             }, void 0, false, {
@@ -34434,7 +34444,7 @@ function Navbar({ user , onLoggedOut  }) {
                                 children: "Sign-in"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.js",
-                                lineNumber: 45,
+                                lineNumber: 46,
                                 columnNumber: 27
                             }, this),
                             !isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
@@ -34442,7 +34452,7 @@ function Navbar({ user , onLoggedOut  }) {
                                 children: "Sign-up"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.js",
-                                lineNumber: 46,
+                                lineNumber: 47,
                                 columnNumber: 27
                             }, this)
                         ]

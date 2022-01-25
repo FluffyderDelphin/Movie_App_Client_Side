@@ -139,7 +139,7 @@ export class MainView extends React.Component {
             <Route
               path="/movies/:id"
               render={({ match, history }) => {
-                if (!user) return <Redirect to="/" />;
+                if (movies.length === 0) return <div className="main-view" />;
                 return (
                   <Col md={8}>
                     <MovieView
@@ -182,6 +182,8 @@ export class MainView extends React.Component {
             <Route
               path={`/user/${user ? user.username : null}`}
               render={({ match, history }) => {
+                if (movies.length === 0) return <div className="main-view" />;
+                if (!user) return <Redirect to="/" />;
                 return (
                   <Col>
                     <ProfileView
@@ -199,6 +201,7 @@ export class MainView extends React.Component {
             <Route
               path={`/user-update/${user ? user.username : null}`}
               render={({ match, history }) => {
+                if (!user) return <Redirect to="/" />;
                 return (
                   <Col>
                     <UpdateUser
