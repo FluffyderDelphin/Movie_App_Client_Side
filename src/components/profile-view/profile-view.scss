@@ -13,3 +13,20 @@
   position: relative;
   margin-top: 30px;
 }
+
+.btn.removeFavBtn {
+  background-color: white;
+  color: rgb(131, 45, 45);
+  border-color: darken(colors.$primary-color, 15%);
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.btn.removeFavBtn:hover,
+.btn.removeFavBtn:focus,
+.btn.removeFavBtn:active {
+  background-color: darken(colors.$primary-color, 25%);
+  border-color: darken(colors.$primary-color, 25%);
+  color: #fff;
+}

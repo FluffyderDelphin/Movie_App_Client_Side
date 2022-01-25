@@ -1,2 +1,2 @@
-.cardContainer{height:100%}.btn.profileBtn{background-color:#ffa915;border-color:#ffa915;color:#fff;margin:10px;position:relative;margin-top:30px}
+.cardContainer{height:100%}.btn.profileBtn{background-color:#ffa915;border-color:#ffa915;color:#fff;margin:10px;position:relative;margin-top:30px}.btn.removeFavBtn{background-color:#fff;color:#832d2d;border-color:#ffa915;position:absolute;right:10px;top:5px}.btn.removeFavBtn:hover,.btn.removeFavBtn:focus,.btn.removeFavBtn:active{background-color:#e18e00;border-color:#e18e00;color:#fff}
 /*# sourceMappingURL=profile-view.min.css.map */

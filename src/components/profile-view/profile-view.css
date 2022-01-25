@@ -10,4 +10,21 @@
   position: relative;
   margin-top: 30px;
 }
+
+.btn.removeFavBtn {
+  background-color: white;
+  color: #832d2d;
+  border-color: #ffa915;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.btn.removeFavBtn:hover,
+.btn.removeFavBtn:focus,
+.btn.removeFavBtn:active {
+  background-color: #e18e00;
+  border-color: #e18e00;
+  color: #fff;
+}
 /*# sourceMappingURL=profile-view.css.map */

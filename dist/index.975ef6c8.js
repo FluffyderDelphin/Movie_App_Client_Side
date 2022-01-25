@@ -34501,16 +34501,36 @@ parcelHelpers.export(exports, "ProfileView", ()=>ProfileView
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactBootstrap = require("react-bootstrap");
 var _profileViewScss = require("./profile-view.scss");
 var _reactRouterDom = require("react-router-dom");
-function ProfileView({ onBackClick , user , movies  }) {
+function ProfileView({ onBackClick , user , movies , updateUser  }) {
+    const deleteFav = (movieId)=>{
+        const token = localStorage.getItem('token');
+        _axiosDefault.default.put(`https://alexandersmovieapp.herokuapp.com/users/${user.username}/favorites/remove/${movieId}`, {
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            const data = response.data;
+            console.log(data);
+            updateUser(data);
+            alert('Update was sucessful ! ');
+        }).catch((response)=>{
+            console.error(response);
+            alert('unable to update');
+        });
+        console.log('User has been updated');
+    };
     const favMoviesList = ()=>{
         if (user.favMovies.length === 0) return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup.Item, {
             children: "No Favorite Movies"
         }, void 0, false, {
             fileName: "src/components/profile-view/profile-view.js",
-            lineNumber: 10,
+            lineNumber: 34,
             columnNumber: 14
         }, this));
         else {
@@ -34518,10 +34538,23 @@ function ProfileView({ onBackClick , user , movies  }) {
                 return user.favMovies.includes(movie._id);
             });
             return filterArray.map((m)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup.Item, {
-                    children: m.title
-                }, m._id, false, {
+                    children: [
+                        m.title,
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                            className: "removeFavBtn",
+                            onClick: ()=>{
+                                deleteFav(m._id);
+                            },
+                            children: "X"
+                        }, void 0, false, {
+                            fileName: "src/components/profile-view/profile-view.js",
+                            lineNumber: 42,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, m._id, true, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 16,
+                    lineNumber: 40,
                     columnNumber: 9
                 }, this)
             );
@@ -34534,7 +34567,7 @@ function ProfileView({ onBackClick , user , movies  }) {
                     children: "User Profile :"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 24,
+                    lineNumber: 58,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup, {
@@ -34548,7 +34581,7 @@ function ProfileView({ onBackClick , user , movies  }) {
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.js",
-                            lineNumber: 26,
+                            lineNumber: 60,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup.Item, {
@@ -34558,7 +34591,7 @@ function ProfileView({ onBackClick , user , movies  }) {
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.js",
-                            lineNumber: 27,
+                            lineNumber: 61,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup.Item, {
@@ -34568,13 +34601,13 @@ function ProfileView({ onBackClick , user , movies  }) {
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.js",
-                            lineNumber: 28,
+                            lineNumber: 62,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 25,
+                    lineNumber: 59,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
@@ -34582,14 +34615,14 @@ function ProfileView({ onBackClick , user , movies  }) {
                     children: "Favorite Movies:"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 30,
+                    lineNumber: 64,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup, {
                     children: favMoviesList()
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 31,
+                    lineNumber: 65,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -34600,7 +34633,7 @@ function ProfileView({ onBackClick , user , movies  }) {
                     children: "Back"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 32,
+                    lineNumber: 66,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
@@ -34610,23 +34643,23 @@ function ProfileView({ onBackClick , user , movies  }) {
                         children: "Update Information"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-view.js",
-                        lineNumber: 41,
+                        lineNumber: 75,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 40,
+                    lineNumber: 74,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/profile-view/profile-view.js",
-            lineNumber: 23,
+            lineNumber: 57,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/components/profile-view/profile-view.js",
-        lineNumber: 22,
+        lineNumber: 56,
         columnNumber: 5
     }, this));
 }
@@ -34639,7 +34672,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","./profile-view.scss":"eyKYH","react-router-dom":"cHIiW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eyKYH":[function() {},{}],"kmX9F":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","./profile-view.scss":"eyKYH","react-router-dom":"cHIiW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","axios":"jo6P5"}],"eyKYH":[function() {},{}],"kmX9F":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$90fb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
