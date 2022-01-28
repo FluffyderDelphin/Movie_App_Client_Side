@@ -13,6 +13,7 @@ export function ProfileView({
   onLoggedOut,
 }) {
   const deleteAc = () => {
+    const token = localStorage.getItem('token');
     let confirmDel = confirm('Are you sure you want to Delete your Acount ? ');
     if (confirmDel) {
       axios
