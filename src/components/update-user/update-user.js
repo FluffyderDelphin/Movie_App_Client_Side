@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Card } from 'react-bootstrap';
-import './registration-view.scss';
+import './update-user.scss';
 import axios from 'axios';
 
-export function RegisterView({}) {
-  const [username, setUsername] = useState('');
+export function UpdateUser({ user, onBackClick, updateUser }) {
+  const [username, setUsername] = useState(user.username);
   const [password, setPassword] = useState('');
-  const [birthday, setBirthday] = useState('');
-  const [email, setEmail] = useState('');
+  const [birthday, setBirthday] = useState(user.birthday.substring(0, 10));
+  const [email, setEmail] = useState(user.email);
 
   const [usernameErr, setUsernameErr] = useState('');
   const [passwordErr, setPasswordErr] = useState('');
@@ -45,36 +45,43 @@ export function RegisterView({}) {
     return isReq;
   };
 
-  const handleRegistration = (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
+    const token = localStorage.getItem('token');
     const isReq = validate();
     if (isReq) {
       axios
-        .post('https://alexandersmovieapp.herokuapp.com/users', {
-          username: username,
-          password: password,
-          email: email,
-          birthday: birthday,
-        })
+        .put(
+          `https://alexandersmovieapp.herokuapp.com/users/${user.username}`,
+          {
+            username: username,
+            password: password,
+            email: email,
+            birthday: birthday,
+          },
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
         .then((response) => {
           const data = response.data;
           console.log(data);
-          alert('Registration successful, please login ! ');
+          updateUser(data);
+          alert('Update was sucessful ! ');
           window.open('/', '_self');
-          // closeRegisterView(false);
         })
         .catch((response) => {
           console.error(response);
-          alert('unable to register');
+          alert('unable to update');
         });
-      console.log('User has been registred');
+      console.log('User has been updated');
     }
   };
 
   return (
     <Card>
       <Card.Header>
-        <Card.Title className="registerTitle">Register</Card.Title>
+        <Card.Title className="updateTitle">Update Information</Card.Title>
       </Card.Header>
       <Card.Body>
         <Form>
@@ -114,19 +121,18 @@ export function RegisterView({}) {
             />
           </Form.Group>
 
-          <Button
-            type="submit"
-            onClick={handleRegistration}
-            className="regButtons"
-          >
+          <Button type="submit" onClick={handleUpdate} className="upButtons">
             Submit
+          </Button>
+          <Button
+            onClick={() => {
+              onBackClick();
+            }}
+          >
+            Back
           </Button>
         </Form>
       </Card.Body>
     </Card>
   );
 }
-
-RegisterView.propType = {
-  closeRegisterView: PropTypes.func.isRequired,
-};

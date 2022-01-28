@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './movie-view.scss';
+
+import { Link } from 'react-router-dom';
 export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
@@ -22,22 +24,25 @@ export class MovieView extends React.Component {
         </Card.Body>
         <Button
           onClick={() => {
-            onBackClick(null);
+            onBackClick();
           }}
           className="cardBtn"
         >
           Back
         </Button>
+
+        <Link to={`/directors/${movie._id}`}>
+          <Button className="cardLinkOne" variant="link">
+            Director{' '}
+          </Button>
+        </Link>
+
+        <Link to={`/genres/${movie._id}`}>
+          <Button className="cardLinkTwo" variant="link">
+            Genre{' '}
+          </Button>
+        </Link>
       </Card>
     );
   }
 }
-
-MovieView.propTypes = {
-  movie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    imageurl: PropTypes.string.isRequired,
-  }).isRequired,
-  onBackClick: PropTypes.func.isRequired,
-};
