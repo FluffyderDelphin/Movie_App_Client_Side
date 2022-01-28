@@ -187,6 +187,7 @@ export class MainView extends React.Component {
                 return (
                   <Col>
                     <ProfileView
+                      onLoggedOut={() => this.onLoggedOut()}
                       updateUser={(newUser) => {
                         this.updateUser(newUser);
                       }}

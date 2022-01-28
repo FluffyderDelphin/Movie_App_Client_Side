@@ -5,7 +5,31 @@ import './profile-view.scss';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export function ProfileView({ onBackClick, user, movies, updateUser }) {
+export function ProfileView({
+  onBackClick,
+  user,
+  movies,
+  updateUser,
+  onLoggedOut,
+}) {
+  const deleteAc = () => {
+    let confirmDel = confirm('Are you sure you want to Delete your Acount ? ');
+    if (confirmDel) {
+      axios
+        .delete(`http://localhost:8080/users/${user._id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+          onLoggedOut();
+        })
+        .catch((response) => {
+          console.error(response);
+          alert('unable to delete');
+        });
+    }
+  };
   const deleteFav = (movieId) => {
     const token = localStorage.getItem('token');
     axios
@@ -74,6 +98,13 @@ export function ProfileView({ onBackClick, user, movies, updateUser }) {
         <Link to={`/user-update/${user.username}`}>
           <Button className="cardLinkOne">Update Information</Button>
         </Link>
+        <Button
+          onClick={() => {
+            deleteAc();
+          }}
+        >
+          Delete Account
+        </Button>
       </Card.Body>
     </Card>
   );
