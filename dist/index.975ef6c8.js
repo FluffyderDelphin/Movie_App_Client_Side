@@ -23966,6 +23966,8 @@ class MainView extends _reactDefault.default.Component {
                                     }, void 0, false, void 0, void 0));
                                     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_colDefault.default, {
                                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_profileView.ProfileView, {
+                                            onLoggedOut: ()=>this.onLoggedOut()
+                                            ,
                                             updateUser: (newUser)=>{
                                                 this.updateUser(newUser);
                                             },
@@ -23997,7 +23999,7 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.js",
-                                lineNumber: 201,
+                                lineNumber: 202,
                                 columnNumber: 13
                             }, this)
                         ]
@@ -34506,7 +34508,23 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactBootstrap = require("react-bootstrap");
 var _profileViewScss = require("./profile-view.scss");
 var _reactRouterDom = require("react-router-dom");
-function ProfileView({ onBackClick , user , movies , updateUser  }) {
+function ProfileView({ onBackClick , user , movies , updateUser , onLoggedOut ,  }) {
+    const deleteAc = ()=>{
+        const token = localStorage.getItem('token');
+        let confirmDel = confirm('Are you sure you want to Delete your Acount ? ');
+        if (confirmDel) _axiosDefault.default.delete(`http://localhost:8080/users/${user._id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            const data = response.data;
+            console.log(data);
+            onLoggedOut();
+        }).catch((response)=>{
+            console.error(response);
+            alert('unable to delete');
+        });
+    };
     const deleteFav = (movieId)=>{
         const token = localStorage.getItem('token');
         _axiosDefault.default.put(`https://alexandersmovieapp.herokuapp.com/users/${user.username}/favorites/remove/${movieId}`, {
@@ -34530,7 +34548,7 @@ function ProfileView({ onBackClick , user , movies , updateUser  }) {
             children: "No Favorite Movies"
         }, void 0, false, {
             fileName: "src/components/profile-view/profile-view.js",
-            lineNumber: 34,
+            lineNumber: 59,
             columnNumber: 14
         }, this));
         else {
@@ -34548,13 +34566,13 @@ function ProfileView({ onBackClick , user , movies , updateUser  }) {
                             children: "X"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-view.js",
-                            lineNumber: 42,
+                            lineNumber: 67,
                             columnNumber: 11
                         }, this)
                     ]
                 }, m._id, true, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 40,
+                    lineNumber: 65,
                     columnNumber: 9
                 }, this)
             );
@@ -34567,7 +34585,7 @@ function ProfileView({ onBackClick , user , movies , updateUser  }) {
                     children: "User Profile :"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 58,
+                    lineNumber: 83,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup, {
@@ -34581,7 +34599,7 @@ function ProfileView({ onBackClick , user , movies , updateUser  }) {
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.js",
-                            lineNumber: 60,
+                            lineNumber: 85,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup.Item, {
@@ -34591,7 +34609,7 @@ function ProfileView({ onBackClick , user , movies , updateUser  }) {
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.js",
-                            lineNumber: 61,
+                            lineNumber: 86,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup.Item, {
@@ -34601,13 +34619,13 @@ function ProfileView({ onBackClick , user , movies , updateUser  }) {
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.js",
-                            lineNumber: 62,
+                            lineNumber: 87,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 59,
+                    lineNumber: 84,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
@@ -34615,14 +34633,14 @@ function ProfileView({ onBackClick , user , movies , updateUser  }) {
                     children: "Favorite Movies:"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 64,
+                    lineNumber: 89,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ListGroup, {
                     children: favMoviesList()
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 65,
+                    lineNumber: 90,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -34633,33 +34651,44 @@ function ProfileView({ onBackClick , user , movies , updateUser  }) {
                     children: "Back"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 66,
+                    lineNumber: 91,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
                     to: `/user-update/${user.username}`,
                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                        className: "cardLinkOne",
+                        className: "profileBtn",
                         children: "Update Information"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-view.js",
-                        lineNumber: 75,
+                        lineNumber: 100,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.js",
-                    lineNumber: 74,
+                    lineNumber: 99,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                    className: "profileBtn",
+                    onClick: ()=>{
+                        deleteAc();
+                    },
+                    children: "Delete Account"
+                }, void 0, false, {
+                    fileName: "src/components/profile-view/profile-view.js",
+                    lineNumber: 102,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/profile-view/profile-view.js",
-            lineNumber: 57,
+            lineNumber: 82,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/components/profile-view/profile-view.js",
-        lineNumber: 56,
+        lineNumber: 81,
         columnNumber: 5
     }, this));
 }
@@ -34672,7 +34701,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","./profile-view.scss":"eyKYH","react-router-dom":"cHIiW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","axios":"jo6P5"}],"eyKYH":[function() {},{}],"kmX9F":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","react-bootstrap":"3AD9A","./profile-view.scss":"eyKYH","react-router-dom":"cHIiW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eyKYH":[function() {},{}],"kmX9F":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$90fb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

@@ -97,9 +97,10 @@ export function ProfileView({
           Back
         </Button>
         <Link to={`/user-update/${user.username}`}>
-          <Button className="cardLinkOne">Update Information</Button>
+          <Button className="profileBtn">Update Information</Button>
         </Link>
         <Button
+          className="profileBtn"
           onClick={() => {
             deleteAc();
           }}
