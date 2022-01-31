@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { connect } from 'react-redux';
 
-import { setMovies } from '../../redux/actions/actions';
+import { setMovies, logUser } from '../../redux/actions/actions';
 
 import MoviesList from '../movies-list/movies-list';
 
@@ -26,24 +26,17 @@ import { DirectorView } from '../directorView/directorView';
 class MainView extends React.Component {
   constructor() {
     super();
-    this.state = {
-      user: null,
-    };
   }
   componentDidMount() {
     let accesToken = localStorage.getItem('token');
     if (accesToken !== null) {
-      this.setState({
-        user: JSON.parse(localStorage.getItem('user')),
-      });
+      this.props.logUser(localStorage.getItem('user'));
       this.getMovies(accesToken);
     }
   }
   onLoggedIn(authData) {
     console.log(authData);
-    this.setState({
-      user: authData.user,
-    });
+    this.props.logUser(authData.user);
 
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', JSON.stringify(authData.user));
@@ -91,7 +84,7 @@ class MainView extends React.Component {
 
   render() {
     let { movies } = this.props;
-    const { user } = this.state;
+    const { user } = this.props;
 
     return (
       <Router>
@@ -115,7 +108,7 @@ class MainView extends React.Component {
                   );
 
                 if (movies.length === 0) return <div className="main-view" />;
-                return <MoviesList movies={movies} />;
+                return <MoviesList movies={movies} user={user} />;
 
                 // return movies.map((m) => (
                 //   <Col md={3} key={m._id}>
@@ -226,6 +219,6 @@ class MainView extends React.Component {
   }
 }
 let mapStateToProps = (state) => {
-  return { movies: state.movies };
+  return { movies: state.movies, user: state.user };
 };
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, { setMovies, logUser })(MainView);
