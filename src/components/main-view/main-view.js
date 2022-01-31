@@ -1,6 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 
+import { connect } from 'react-redux';
+
+import { setMovies } from '../../redux/actions/actions';
+
+import MoviesList from '../movies-list/movies-list';
+
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import { LoginView } from '../login view/login-view';
@@ -17,11 +23,10 @@ import './main-view.scss';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../directorView/directorView';
 
-export class MainView extends React.Component {
+class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
       user: null,
     };
   }
@@ -51,9 +56,7 @@ export class MainView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        this.setState({
-          movies: response.data,
-        });
+        this.props.setMovies(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -87,7 +90,8 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user } = this.state;
+    const { user } = this.state;
+    let { movies } = this.props;
 
     return (
       <Router>
@@ -111,18 +115,19 @@ export class MainView extends React.Component {
                   );
 
                 if (movies.length === 0) return <div className="main-view" />;
+                return <MoviesList movies={movies} />;
 
-                return movies.map((m) => (
-                  <Col md={3} key={m._id}>
-                    <MovieCard
-                      user={user}
-                      movie={m}
-                      updateUser={(newUser) => {
-                        this.updateUser(newUser);
-                      }}
-                    />
-                  </Col>
-                ));
+                // return movies.map((m) => (
+                //   <Col md={3} key={m._id}>
+                //     <MovieCard
+                //       user={user}
+                //       movie={m}
+                //       updateUser={(newUser) => {
+                //         this.updateUser(newUser);
+                //       }}
+                //     />
+                //   </Col>
+                // ));
               }}
             />
             <Route
@@ -219,5 +224,8 @@ export class MainView extends React.Component {
       </Router>
     );
   }
+  mapStateToProps = (state) => {
+    return { movies: state.movies };
+  };
 }
-export default MainView;
+export default connect(mapStateToProps, { setMovies })(MainView);
