@@ -56,9 +56,7 @@ class MainView extends React.Component {
       });
   }
   updateUser(newUser) {
-    this.setState({
-      user: newUser,
-    });
+    this.props.logUser(newUser);
     localStorage.setItem('user', JSON.stringify(newUser));
   }
 
@@ -77,9 +75,7 @@ class MainView extends React.Component {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     localStorage.clear();
-    this.setState({
-      user: null,
-    });
+    this.props.logUser(null);
   }
 
   render() {
