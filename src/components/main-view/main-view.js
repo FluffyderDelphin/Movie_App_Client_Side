@@ -30,7 +30,7 @@ class MainView extends React.Component {
   componentDidMount() {
     let accesToken = localStorage.getItem('token');
     if (accesToken !== null) {
-      this.props.logUser(localStorage.getItem('user'));
+      this.props.logUser(JSON.parse(localStorage.getItem('user')));
       this.getMovies(accesToken);
     }
   }
@@ -104,7 +104,15 @@ class MainView extends React.Component {
                   );
 
                 if (movies.length === 0) return <div className="main-view" />;
-                return <MoviesList movies={movies} user={user} />;
+                return (
+                  <MoviesList
+                    movies={movies}
+                    user={user}
+                    updateUser={(newUser) => {
+                      this.updateUser(newUser);
+                    }}
+                  />
+                );
 
                 // return movies.map((m) => (
                 //   <Col md={3} key={m._id}>
