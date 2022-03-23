@@ -3,7 +3,7 @@ import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 
 import './navbar.scss';
 
-export function Navbar({ user, onLoggedOut }) {
+export default function Navbar({ user, onLoggedOut }) {
   const isAuth = () => {
     if (typeof window == 'undefined') {
       return false;
