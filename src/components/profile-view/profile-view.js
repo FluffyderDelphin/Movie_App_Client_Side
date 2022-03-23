@@ -14,7 +14,7 @@ export function ProfileView({
 }) {
   const deleteAc = () => {
     const token = localStorage.getItem('token');
-    let confirmDel = confirm('Are you sure you want to Delete your Acount ? ');
+    let confirmDel = confirm('Are you sure you want to Delete your Account ? ');
     if (confirmDel) {
       axios
         .delete(`http://localhost:8080/users/${user._id}`, {

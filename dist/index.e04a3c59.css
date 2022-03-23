@@ -94,9 +94,6 @@
   background-color: #e18e00;
   border-color: #e18e00;
 }
-.col-card {
-  margin-bottom: 20px;
-}
 button,
 input[type=submit],
 input[type=reset] {
@@ -138,6 +135,9 @@ input[type=reset] {
   color: #fff;
 }
 
+.col-card {
+  margin-bottom: 20px;
+}
 
 
 * {
