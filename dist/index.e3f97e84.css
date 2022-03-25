@@ -1,0 +1,150 @@
+.cardContainer {
+  height: 100%;
+}
+
+.btn.cardBtn {
+  background-color: #ffa915;
+  border-color: #ffa915;
+  color: #fff;
+  margin: 10px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.btn.cardBtn:hover,
+.btn.cardBtn:focus,
+.btn.cardBtn:active {
+  background-color: #e18e00;
+  border-color: #e18e00;
+  color: #fff;
+}
+
+.card-body.cardBody {
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.loginTitle {
+  text-align: center;
+}
+
+.btn.loginButtons {
+  background-color: #ffa915;
+  border-color: #ffa915;
+  margin: 10px;
+}
+
+.btn.loginButtons:hover,
+.btn.loginButtons:focus,
+.btn.loginButtons:active {
+  background-color: #e18e00;
+  border-color: #e18e00;
+}
+
+.valClass {
+  font-size: 15px;
+  color: #ce3c3c;
+}
+.btn.cardBtn {
+  background-color: #ffa915;
+  border-color: #ffa915;
+  color: #fff;
+  margin: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.btn.cardBtn:hover,
+.btn.cardBtn:focus,
+.btn.cardBtn:active {
+  background-color: #e18e00;
+  border-color: #e18e00;
+  color: #fff;
+}
+
+.card-body.cardBody {
+  position: relative;
+  padding-bottom: 70px;
+}
+
+.btn.cardLinkOne {
+  position: absolute;
+  bottom: 40px;
+  right: 10px;
+}
+
+.btn.cardLinkTwo {
+  position: absolute;
+  bottom: 10px;
+  right: 26px;
+}
+.registerTitle {
+  text-align: center;
+}
+
+.btn.regButtons {
+  background-color: #ffa915;
+  border-color: #ffa915;
+  margin: 10px;
+}
+
+.btn.regButtons:hover,
+.btn.regButtons:focus,
+.btn.regButtons:active {
+  background-color: #e18e00;
+  border-color: #e18e00;
+}
+button,
+input[type=submit],
+input[type=reset] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+.cardContainer {
+  height: 100%;
+}
+
+.btn.profileBtn {
+  background-color: #ffa915;
+  border-color: #ffa915;
+  color: #fff;
+  margin: 10px;
+  position: relative;
+  margin-top: 30px;
+}
+
+.btn.removeFavBtn {
+  background-color: white;
+  color: #832d2d;
+  border-color: #ffa915;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.btn.removeFavBtn:hover,
+.btn.removeFavBtn:focus,
+.btn.removeFavBtn:active {
+  background-color: #e18e00;
+  border-color: #e18e00;
+  color: #fff;
+}
+.col-card {
+  margin-bottom: 20px;
+}
+
+
+* {
+  font-size: 18px;
+}
+
+.movie-app {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.e3f97e84.css.map */
