@@ -13,7 +13,7 @@ import { LoginView } from '../login view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegisterView } from '../registration-view/registration-view';
-import { Navbar } from '../navbar/navbar';
+import { NavBar } from '../navbar/navbar';
 import { ProfileView } from '../profile-view/profile-view';
 import { UpdateUser } from '../update-user/update-user';
 import Row from 'react-bootstrap/Row';
@@ -84,7 +84,7 @@ class MainView extends React.Component {
 
     return (
       <Router>
-        <Navbar
+        <NavBar
           user={user ? user.username : null}
           onLoggedOut={() => {
             this.onLoggedOut();

@@ -3,26 +3,26 @@
 }
 
 .btn.cardBtn {
+  color: #fff;
   background-color: #ffa915;
   border-color: #ffa915;
-  color: #fff;
   margin: 10px;
   position: absolute;
   bottom: 10px;
 }
 
-.btn.cardBtn:hover,
-.btn.cardBtn:focus,
-.btn.cardBtn:active {
+.btn.cardBtn:hover, .btn.cardBtn:focus, .btn.cardBtn:active {
+  color: #fff;
   background-color: #e18e00;
   border-color: #e18e00;
-  color: #fff;
 }
 
 .card-body.cardBody {
-  position: relative;
   padding-bottom: 60px;
+  position: relative;
 }
+
+
 
 .loginTitle {
   text-align: center;
@@ -34,38 +34,35 @@
   margin: 10px;
 }
 
-.btn.loginButtons:hover,
-.btn.loginButtons:focus,
-.btn.loginButtons:active {
+.btn.loginButtons:hover, .btn.loginButtons:focus, .btn.loginButtons:active {
   background-color: #e18e00;
   border-color: #e18e00;
 }
 
 .valClass {
-  font-size: 15px;
   color: #ce3c3c;
+  font-size: 15px;
 }
+
 .btn.cardBtn {
+  color: #fff;
   background-color: #ffa915;
   border-color: #ffa915;
-  color: #fff;
   margin: 10px;
   position: absolute;
   bottom: 10px;
   left: 10px;
 }
 
-.btn.cardBtn:hover,
-.btn.cardBtn:focus,
-.btn.cardBtn:active {
+.btn.cardBtn:hover, .btn.cardBtn:focus, .btn.cardBtn:active {
+  color: #fff;
   background-color: #e18e00;
   border-color: #e18e00;
-  color: #fff;
 }
 
 .card-body.cardBody {
-  position: relative;
   padding-bottom: 70px;
+  position: relative;
 }
 
 .btn.cardLinkOne {
@@ -79,6 +76,7 @@
   bottom: 10px;
   right: 26px;
 }
+
 .registerTitle {
   text-align: center;
 }
@@ -89,55 +87,54 @@
   margin: 10px;
 }
 
-.btn.regButtons:hover,
-.btn.regButtons:focus,
-.btn.regButtons:active {
+.btn.regButtons:hover, .btn.regButtons:focus, .btn.regButtons:active {
   background-color: #e18e00;
   border-color: #e18e00;
 }
-button,
-input[type=submit],
-input[type=reset] {
-  background: none;
+
+button, input[type="submit"], input[type="reset"] {
   color: inherit;
-  border: none;
-  padding: 0;
   font: inherit;
   cursor: pointer;
   outline: inherit;
+  background: none;
+  border: none;
+  padding: 0;
 }
+
 .cardContainer {
   height: 100%;
 }
 
 .btn.profileBtn {
+  color: #fff;
   background-color: #ffa915;
   border-color: #ffa915;
-  color: #fff;
-  margin: 10px;
+  margin: 30px 10px 10px;
   position: relative;
-  margin-top: 30px;
 }
 
 .btn.removeFavBtn {
-  background-color: white;
   color: #832d2d;
+  background-color: #fff;
   border-color: #ffa915;
   position: absolute;
-  right: 10px;
   top: 5px;
+  right: 10px;
 }
 
-.btn.removeFavBtn:hover,
-.btn.removeFavBtn:focus,
-.btn.removeFavBtn:active {
+.btn.removeFavBtn:hover, .btn.removeFavBtn:focus, .btn.removeFavBtn:active {
+  color: #fff;
   background-color: #e18e00;
   border-color: #e18e00;
-  color: #fff;
 }
+
 .col-card {
   margin-bottom: 20px;
 }
+
+
+
 
 
 * {
@@ -145,6 +142,7 @@ input[type=reset] {
 }
 
 .movie-app {
-  color: steelblue;
+  color: #4682b4;
 }
+
 /*# sourceMappingURL=index.e3f97e84.css.map */
