@@ -10,8 +10,13 @@ The User also may Edit his Profile or even delete his Account.
 
 <img src="images\movieApp.PNG" alt="Screenshot" width="1200"/>
 
-The App uses Routing and State Mangement to send the User to diffrent Pages(or 'views'). So for example when the User is not logged in. He cant acess any other site
-besided the Login or Register Screen. The Navbar allows him to navigate to the Profile View and the Main View.
+## How to use 
+ - [Visit the Page] (https://movi-app.netlify.app/)
+ - click on the Register Button and Register
+ - Login 
+ - Now you can freely navige the Page 
+ -  Login Token gets stored to the Local Storage till logout 
+
 
 # Build with
 - React
