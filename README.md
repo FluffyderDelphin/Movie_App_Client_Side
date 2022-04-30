@@ -5,7 +5,7 @@ After a Login the User get a Display of Movies.
 From there he can Click on the 'Moviecard' Buttons and display more Details, or he can view his own profile and update it.
 He can also search for a Movies with a Filter and make a list of Favorite Movies wich gets Displayed on his Profile.
 
-![movieApp](images/movieApp.png)
+<img src="images\movieApp.PNG" alt="Screenshot" width="400"/>
 
 The App uses Routing and State Mangement to send the User to diffrent Pages(or 'views'). So for example when the User is not logged in. He cant acess any other site
 besided the Login or Register Screen. The Navbar allows him to navigate to the Profile View and the Main View.
