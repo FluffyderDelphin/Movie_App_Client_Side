@@ -20,5 +20,5 @@ besided the Login or Register Screen. The Navbar allows him to navigate to the P
 - Axios
 - Scss
 - Javascript
- My own MovieApp Api https://github.com/FluffyderDelphin/Movie_App_Project
+ - My own MovieApp Api https://github.com/FluffyderDelphin/Movie_App_Project
 This sends and get send User and Movie Date between this Client Side App via Axios requests.
