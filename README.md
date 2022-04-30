@@ -1,9 +1,12 @@
 # Movie_App_Client_Side
 
-This is my first App build with React. It allows the 'user' to register and login.From the login the Users gets a Token from the MovieApp Api saved on the Local Storage.
-After a Login the User get a Display of Movies.
-From there he can Click on the 'Moviecard' Buttons and display more Details, or he can view his own profile and update it.
-He can also search for a Movies with a Filter and make a list of Favorite Movies wich gets Displayed on his Profile.
+"Movie_App_Client Side" is the Frontend Part of my MERN Stack Project.
+Open User Authentication, a List of Movies is Displayed, wich the User can add to his Favorites or see further Detais.
+The User also may Edit his Profile or even delete his Account. 
+
+## Links
+-  Link to the Deployed Website https://movi-app.netlify.app/
+-  Link to the Api Reposetory  https://github.com/FluffyderDelphin/Movie_App_Project
 
 <img src="images\movieApp.PNG" alt="Screenshot" width="1200"/>
 
@@ -20,5 +23,6 @@ besided the Login or Register Screen. The Navbar allows him to navigate to the P
 - Axios
 - Scss
 - Javascript
- - My own MovieApp Api https://github.com/FluffyderDelphin/Movie_App_Project
-This sends and get send User and Movie Date between this Client Side App via Axios requests.
+ - [My  MovieApp Api]( https://github.com/FluffyderDelphin/Movie_App_Project)
+ 
+
