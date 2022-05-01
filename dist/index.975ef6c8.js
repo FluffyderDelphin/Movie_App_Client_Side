@@ -26505,7 +26505,7 @@ class MainView extends _reactDefault.default.Component {
         const { user: user1  } = this.props;
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.BrowserRouter, {
             children: [
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_navbar.Navbar, {
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_navbar.NavBar, {
                     user: user1 ? user1.username : null,
                     onLoggedOut: ()=>{
                         this.onLoggedOut();
@@ -36561,14 +36561,14 @@ $parcel$ReactRefreshHelpers$f1e5.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Navbar", ()=>Navbar
+parcelHelpers.export(exports, "NavBar", ()=>NavBar
 );
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _navbarScss = require("./navbar.scss");
-function Navbar({ user , onLoggedOut  }) {
+function NavBar({ user , onLoggedOut  }) {
     const isAuth = ()=>{
         if (typeof window == 'undefined') return false;
         if (localStorage.getItem('token')) return localStorage.getItem('token');
@@ -36665,9 +36665,9 @@ function Navbar({ user , onLoggedOut  }) {
         columnNumber: 5
     }, this);
 }
-_c = _reactBootstrap.Navbar;
+_c = NavBar;
 var _c;
-$RefreshReg$(_c, "Navbar");
+$RefreshReg$(_c, "NavBar");
 
   $parcel$ReactRefreshHelpers$f1e5.postlude(module);
 } finally {
