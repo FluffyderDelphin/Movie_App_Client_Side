@@ -1,24 +1,33 @@
 # Movie_App_Client_Side
 
-This is my first App build with React. It allows the 'user' to register and login.From the login the Users gets a Token from the MovieApp Api saved on the Local Storage.
-After a Login the User get a Display of Movies.
-From there he can Click on the 'Moviecard' Buttons and display more Details, or he can view his own profile and update it.
-He can also search for a Movies with a Filter and make a list of Favorite Movies wich gets Displayed on his Profile.
+"Movie_App_Client Side" is the Frontend Part of my MERN Stack Project.
+Open User Authentication, a List of Movies is Displayed, wich the User can add to his Favorites or see further Detais.
+The User also may Edit his Profile or even delete his Account. 
 
-![movieApp](images/movieApp.png)
+## Links
+-  Link to the Deployed Website https://movi-app.netlify.app/
+-  Link to the Api Reposetory  https://github.com/FluffyderDelphin/Movie_App_Project
 
-The App uses Routing and State Mangement to send the User to diffrent Pages(or 'views'). So for example when the User is not logged in. He cant acess any other site
-besided the Login or Register Screen. The Navbar allows him to navigate to the Profile View and the Main View.
+<img src="images\movieApp.PNG" alt="Screenshot" width="1200"/>
 
-#Build with
-_-React
-_-React Redux
-_-React Boostrap
-_-React Router ver.5
-_-Npm
-_-Parcel
-_-Axios
-_-Scss
-_-Javascript
-_-My own MovieApp Api https://github.com/FluffyderDelphin/Movie_App_Project
-This sends and get send User and Movie Date between this Client Side App via Axios requests.
+## How to use 
+ - [Visit the Page] (https://movi-app.netlify.app/)
+ - click on the Register Button and Register
+ - Login 
+ - Now you can freely navige the Page 
+ -  Login Token gets stored to the Local Storage till logout 
+
+
+# Build with
+- React
+- React Redux
+- React Boostrap
+- React Router ver.5
+- Npm
+- Parcel
+- Axios
+- Scss
+- Javascript
+ - [My  MovieApp Api]( https://github.com/FluffyderDelphin/Movie_App_Project)
+ 
+
