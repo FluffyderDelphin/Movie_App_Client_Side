@@ -32,7 +32,11 @@ export function NavBar({ user, onLoggedOut }) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            {isAuth() && <Link href={`/user/${user}`}>{user}</Link>}
+            {isAuth() && (
+              <Link to={`/user/${user}`}>
+                <Button variant="link">{user}</Button>
+              </Link>
+            )}
             {isAuth() && (
               <Button
                 variant="link"
@@ -44,8 +48,16 @@ export function NavBar({ user, onLoggedOut }) {
                 Logout
               </Button>
             )}
-            {!isAuth() && <Link href="/">Sign-in</Link>}
-            {!isAuth() && <Link href="/register">Sign-up</Link>}
+            {!isAuth() && (
+              <Link to={'/'}>
+                <Button variant="link">Sign-in</Button>
+              </Link>
+            )}
+            {!isAuth() && (
+              <Link to={'/register'}>
+                <Button variant="link">Sign-up</Button>
+              </Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
