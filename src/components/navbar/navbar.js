@@ -40,6 +40,7 @@ export function NavBar({ user, onLoggedOut }) {
             {isAuth() && (
               <Button
                 variant="link"
+                className="link-button"
                 onClick={() => {
                   onLoggedOut();
                   window.open('/', '_self');
@@ -50,12 +51,16 @@ export function NavBar({ user, onLoggedOut }) {
             )}
             {!isAuth() && (
               <Link to={'/'}>
-                <Button variant="link">Sign-in</Button>
+                <Button variant="link" className="link-button">
+                  Sign-in
+                </Button>
               </Link>
             )}
             {!isAuth() && (
               <Link to={'/register'}>
-                <Button variant="link">Sign-up</Button>
+                <Button variant="link" className="link-button">
+                  Sign-up
+                </Button>
               </Link>
             )}
           </Nav>
